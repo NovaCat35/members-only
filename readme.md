@@ -15,14 +15,13 @@ npm install dotenv --save
 npm install mongoose
 npm install express-async-handler
 npm install express-validator
-npm install node-sass-middleware --save
-npm install express sass
+npm install node-sass-middleware
 npm install luxon 
 ```
 
 > Reminder to check app.js for all added changes 
 
-### Installing Typescript & Nodemon:
+### Installing TypeScript & Nodemon:
 > Type in terminal the following : 
 ```
 npm i -D typescript @types/express @types/node
@@ -43,4 +42,4 @@ npm install express-rate-limit
 
 
 ## Resources and Sources
-Typescript setup: https://blog.logrocket.com/how-to-set-up-node-typescript-express/#create-express-server-with-ts-extension
+TypeScript setup: https://blog.logrocket.com/how-to-set-up-node-typescript-express/#create-express-server-with-ts-extension
