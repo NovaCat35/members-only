@@ -4,16 +4,38 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const sassMiddleware = require("node-sass-middleware");
+const session = require("express-session");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
 
+// Routes
 var indexRouter = require("./src/routes/index");
 var usersRouter = require("./src/routes/users");
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 var app = express();
+
+// Connect to Mongoose
+const mongoose = require("mongoose");
+mongoose.set("strictQuery", false);
+const dev_db_url = process.env.MONGODB_DEV_URL;
+const mongoDB = process.env.MONGODB_URL || dev_db_url;
+main().catch((err) => console.log(err));
+async function main() {
+	await mongoose.connect(mongoDB);
+}
 
 // view engine setup
 app.set("views", path.join(__dirname, "src/views"));
 app.set("view engine", "ejs");
 
+app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.urlencoded({ extended: false }));
 app.use(
 	sassMiddleware({
 		src: path.join(__dirname, "public"),
