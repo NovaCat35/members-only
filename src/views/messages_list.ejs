@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('templates/head') %>
+   <body>
+      <% messages.forEach(msg => { %>
+         <div class="message-container">
+            <h1>msg.message</h1>
+         </div>
+      <% }) %>
+   </body>
+</html>

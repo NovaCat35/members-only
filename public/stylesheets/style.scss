@@ -1,13 +1,61 @@
+// Reset box model and margin/padding
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+// Remove list styles
+ul,
+ol {
+	list-style: none;
+}
+
+// Remove default paragraph margins
+p {
+	margin: 0;
+}
+
+// Remove default heading margins
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
+// Remove default anchor styling
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/**********************
+* * * BASIC SETUP
+***********************/
 h1 {
-   font-size: 3rem;
+	font-size: 3rem;
 }
 
 body {
-   padding: 50px;
-   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
- }
- 
- a {
-   color: #00B7FF;
- }
- 
+	padding: 50px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #00b7ff;
+}
+
+/**********************
+* * * HOMEPAGE
+***********************/
+
+
+/**********************
+* * * LOGINPAGE SETUP
+***********************/
+

@@ -1,5 +1,5 @@
 # MEMBERS ONLY
-Welcome to this corner of the secret web! This site is an exclusive clubhouse where veiled within are anonymous musings, obscured data, and cryptic authors. You too can unlock the mysteries within by joining our elusive fellowship today!
+Welcome to this corner of the secret web! This site is an exclusive clubhouse where veiled within are anonymous musings, obscured data, and cryptic authors. Sound interesting? Then start by joining our elusive fellowship today! 🤫
 
 Early planning goals: sign-up / login authentication, processing user posts and keep database session.
 
@@ -22,8 +22,8 @@ npm install mongoose
 npm install express-async-handler
 npm install express-validator
 npm install node-sass-middleware
-npm install luxon 
 npm install bcryptjs
+npm install luxon (use TYPESCRIPT: npm install --save @types/luxon)
 ```
 
 > Reminder to check app.js for all added changes 
