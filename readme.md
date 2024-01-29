@@ -21,7 +21,8 @@ npm install express-session
 npm install mongoose
 npm install express-async-handler
 npm install express-validator
-npm install node-sass-middleware
+npm install node-sass-middleware <not sure if I need this anymore>
+npm install express sass
 npm install bcryptjs
 npm install luxon (use TYPESCRIPT: npm install --save @types/luxon)
 ```

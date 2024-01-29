@@ -1,1 +1,61 @@
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}ul,ol{list-style:none}p{margin:0}h1,h2,h3,h4,h5,h6{margin:0}a{text-decoration:none;color:inherit}h1{font-size:3rem}body{padding:50px;font:14px "Lucida Grande", Helvetica, Arial, sans-serif}a{color:#00B7FF}
+h1 {
+  font-size: 3rem;
+}
+
+.opts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/**********************
+* * * BASIC SETUP
+***********************/
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00b7ff;
+}
+
+/**********************
+* * * HOMEPAGE
+***********************/
+/**********************
+* * * LOGINPAGE SETUP
+***********************/
+
+/*# sourceMappingURL=style.css.map */

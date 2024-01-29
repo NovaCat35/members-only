@@ -14,17 +14,21 @@ exports.homepage = asyncHandler(async(req: Request, res: Response, next: NextFun
    })
 })
 
-// exports.signup_get = asyncHandler(async (req: Request, res:Response, next: NextFunction) => {
-   
-// })
+exports.signup_get = asyncHandler(async (req: Request, res:Response, next: NextFunction) => {
+   res.render('signup', {
+      title: 'Sign-up Page',
+   })
+})
 
 // exports.signup_post = [
 
 // ]
 
-// exports.login_get = asyncHandler(async (req: Request, res:Response, next: NextFunction) => {
-
-// })
+exports.login_get = asyncHandler(async (req: Request, res:Response, next: NextFunction) => {
+   res.render('login', {
+      title: 'Login Page',
+   })
+})
 
 // exports.login_post = []
 

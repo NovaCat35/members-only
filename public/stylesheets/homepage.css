@@ -1,0 +1,11 @@
+h1 {
+  font-size: 3rem;
+}
+
+.opts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/*# sourceMappingURL=homepage.css.map */

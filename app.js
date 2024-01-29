@@ -36,15 +36,17 @@ app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUniniti
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
+// Note: I don't even think we need sassMiddleware since the script in "package.json" takes care of the scss -> css
 app.use(
-	sassMiddleware({
-		src: path.join(__dirname, "public"),
-		dest: path.join(__dirname, "public"),
-		indentedSyntax: false, // true = .sass and false = .scss
-		debug: true,
-		outputStyle: "compressed",
-	})
+    sassMiddleware({
+        src: path.join(__dirname, 'public', 'scss'),
+        dest: path.join(__dirname, 'public',"stylesheets"), // CSS output directory (remains the same)
+        indentedSyntax: false, // true = .sass and false = .scss
+        debug: true,
+        outputStyle: 'compressed',
+    })
 );
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
