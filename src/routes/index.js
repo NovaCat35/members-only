@@ -9,7 +9,11 @@ const form_controller = require("../controllers/formController");
 router.get('/', form_controller.homepage);
 
 router.get('/signup', form_controller.signup_get);
+router.post('/signup', form_controller.signup_post);
 
 router.get('/login', form_controller.login_get);
+
+router.get('/messages', form_controller.login_get);
+
 
 module.exports = router;

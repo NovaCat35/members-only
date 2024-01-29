@@ -4,19 +4,22 @@
 <body>
    <form action="" method="post">
       <div class="form-opt">
-         <label for="name">Name *</label>
-         <input type="text" placeholder="John Doe">
+         <label for="username">Name *</label>
+         <input type="text" name="username" id="username" placeholder="Alexander Hamilton">
       </div>
       <div class="form-opt">
          <label for="password">Password *</label>
-         <input type="text" id="password">
+         <input type="password" name="password" id="password">
       </div>
       <div class="form-opt">
          <label for="password-confirm">Password Confirm *</label>
-         <input type="text" id="password-confirm">
+         <input type="password" name="password_confirmation" id="password-confirm">
       </div>
 
       <button type="submit">Sign Up</button>
    </form>
+   <% if(typeof errors !== 'undefined' || typeof password_error !== 'undefined') { %>
+      <div><%= password_error %></div>
+   <% } %>
 </body>
 </html>

@@ -7,6 +7,7 @@ const sassMiddleware = require("node-sass-middleware");
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const User = require("./src/models/user");
 
 // Routes
 var indexRouter = require("./src/routes/index");
@@ -27,6 +28,24 @@ main().catch((err) => console.log(err));
 async function main() {
 	await mongoose.connect(mongoDB);
 }
+
+// Setting up the LocalStrategy
+passport.use(
+  new LocalStrategy(async (username, password, done) => {
+    try {
+      const user = await User.findOne({ username: username });
+      if (!user) {
+        return done(null, false, { message: "Incorrect username" });
+      };
+      if (user.password !== password) {
+        return done(null, false, { message: "Incorrect password" });
+      };
+      return done(null, user);
+    } catch(err) {
+      return done(err);
+    };
+  })
+);
 
 // view engine setup
 app.set("views", path.join(__dirname, "src/views"));
