@@ -7,10 +7,11 @@ const { body, validationResult } = require("express-validator");
 
 // CONTROLLER FOR MESSAGE POSTS
 exports.message_list = asyncHandler(async (req: Request, res:Response, next: NextFunction) => {
-	const message = await Message.find({});
-   res.render('messages_list', {
+	const [messages, users] = await Promise.all([Message.find().populate("user").exec(), User.find().exec()]);
+   res.render('message_list', {
       title: "Message List",
-      message: message,
+      messages: messages,
+      users: users,
    })
 });
 

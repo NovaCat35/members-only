@@ -13,7 +13,7 @@ router.post('/signup', form_controller.signup_post);
 
 router.get('/login', form_controller.login_get);
 
-router.get('/messages', form_controller.login_get);
+router.get('/messages', message_controller.message_list);
 
 
 module.exports = router;

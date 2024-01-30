@@ -21,40 +21,42 @@ exports.signup_get = asyncHandler(async (req: Request, res: Response, next: Next
 });
 
 exports.signup_post = [
-	body("username", "Username cant be empty").notEmpty().escape(),
-	body("password", "Invalid password").notEmpty().isLength({ min: 8 }).withMessage("Password must be greater than 8 characters.").escape(),
-	body("password_confirmation", "Invalid password").notEmpty().isLength({ min: 8 }).withMessage("Password must be greater than 8 characters.").escape(),
+	body("username", "Username cant be empty").trim().notEmpty().escape(),
+	body("password", "Invalid password").trim().notEmpty().isLength({ min: 8 }).withMessage("Password must be greater than 8 characters.").escape(),
+	body("password_confirmation", "Invalid password").trim().notEmpty().isLength({ min: 8 }).withMessage("Password must be greater than 8 characters.").escape(),
 
 	asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
 		const errors = validationResult(req);
+		console.log("Request Body:", req.body); // Log the request body
+
+		// Hash and salt
+		const hashedPassword = await bcrypt.hash(req.body.password, 10, async (err: Error, hashedPassword: String) => {
+			// Check if hashing error
+			if (err) {
+				console.error("Error hashing password:", err);
+				return res.status(500).send("Internal Server Error");
+			}
+			return hashedPassword;
+		});
+
+		const user = new User({
+			username: req.body.username,
+			password: hashedPassword,
+			member_status: false,
+		});
 
 		// Check if password & confirm password matches or there's errors
 		if (!errors.isEmpty() || req.body.password !== req.body.password_confirmation) {
-			return res.render("signup", {
+			res.render("signup", {
 				title: "Sign-up Page",
-				user: User,
+				user: user,
 				errors: errors.array(),
 				password_error: "Passwords do not match, please try again.",
 			});
-		}
-
-		try {
-         // Hash and salt
-			const hashedPassword = await bcrypt.hash(req.body.password, 10);
-
-			const user = new User({
-				username: body.req.username,
-				password: hashedPassword,
-				member_status: false,
-			});
-
+		} else {
 			await user.save();
-
 			// Redirect to the main message page
 			res.redirect("/messages");
-		} catch (err) {
-			console.error("Error hashing password:", err);
-			return res.status(500).send("Internal Server Error");
 		}
 	}),
 ];
