@@ -7,14 +7,16 @@ const sassMiddleware = require("node-sass-middleware");
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+// const { bcrypt } = require("./src/config/bcrypt");
+const bcrypt = require("bcryptjs");
 const User = require("./src/models/user");
 
 // Routes
 var indexRouter = require("./src/routes/index");
 var usersRouter = require("./src/routes/users");
 
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
+if (process.env.NODE_ENV !== "production") {
+	require("dotenv").config();
 }
 
 var app = express();
@@ -31,33 +33,37 @@ async function main() {
 
 // Setting up the LocalStrategy
 passport.use(
-  new LocalStrategy(async (username, password, done) => {
-    try {
-      const user = await User.findOne({ username: username });
-      if (!user) {
-        return done(null, false, { message: "Incorrect username" });
-      };
-      if (user.password !== password) {
-        return done(null, false, { message: "Incorrect password" });
-      };
-      return done(null, user);
-    } catch(err) {
-      return done(err);
-    };
-  })
+	new LocalStrategy(async (username, password, done) => {
+		try {
+			const user = await User.findOne({ username: username });
+			if (!user) {
+        // no user found
+				return done(null, false, { message: "Incorrect username" });
+			}
+
+			const match = await bcrypt.compare(password, user.password);
+			if (!match) {
+				// passwords do not match!
+				return done(null, false, { message: "Incorrect password" });
+			}
+			return done(null, user);
+		} catch (err) {
+			return done(err);
+		}
+	})
 );
 
 // Passport sessions and serialization
 passport.serializeUser((user, done) => {
-  done(null, user.id);
+	done(null, user.id);
 });
 passport.deserializeUser(async (id, done) => {
-  try {
-    const user = await User.findById(id);
-    done(null, user);
-  } catch(err) {
-    done(err);
-  };
+	try {
+		const user = await User.findById(id);
+		done(null, user);
+	} catch (err) {
+		done(err);
+	}
 });
 
 // view engine setup
@@ -70,13 +76,13 @@ app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 // Note: I don't even think we need sassMiddleware since the script in "package.json" takes care of the scss -> css
 app.use(
-    sassMiddleware({
-        src: path.join(__dirname, 'public', 'scss'),
-        dest: path.join(__dirname, 'public',"stylesheets"), // CSS output directory (remains the same)
-        indentedSyntax: false, // true = .sass and false = .scss
-        debug: true,
-        outputStyle: 'compressed',
-    })
+	sassMiddleware({
+		src: path.join(__dirname, "public", "scss"),
+		dest: path.join(__dirname, "public", "stylesheets"), // CSS output directory (remains the same)
+		indentedSyntax: false, // true = .sass and false = .scss
+		debug: true,
+		outputStyle: "compressed",
+	})
 );
 
 app.use(logger("dev"));

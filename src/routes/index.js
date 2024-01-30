@@ -12,7 +12,7 @@ router.get('/signup', form_controller.signup_get);
 router.post('/signup', form_controller.signup_post);
 
 router.get('/login', form_controller.login_get);
-// router.post('/login', form_controller.login_post);
+router.post('/login', form_controller.login_post);
 
 router.get('/logout', form_controller.logout_get);
 

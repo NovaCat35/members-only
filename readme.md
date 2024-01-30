@@ -6,6 +6,8 @@ Early planning goals: sign-up / login authentication, processing user posts and 
 
 ⚠️ This project is currently a WORK IN PROGRESS ⚠️
 
+# Challenges 🔥
+When trying to implement the sign-up and login functionality using bcrypt, I ran into a lot of errors with bcrypt missing variables and 500 server issues. A lot of this was partially due to the changing around of my logic for modularity so the initial code had code faults in the logic since app.js contains the bulk of the passport initialization. I eventually fix this through trials and errors by taking a step back and reanalyzing my code logic.
 
 ## Installation Guide ⚙️
 ### Development
@@ -37,7 +39,7 @@ npx tsc --init
 npm install --save-dev ts-node nodemon
 ```
 
-> don't forget to uncomment "outDir" in tsconfig.json & change to "outDir": "./dist"
+> don't forget to uncomment "outDir", "allowJs", & change to "outDir": "./dist" in tsconfig.json
 
 ### Production
 > Type in terminal the following : 
