@@ -72,3 +72,12 @@ exports.login_get = asyncHandler(async (req: Request, res: Response, next: NextF
 // exports.member_access_get = asyncHandler(async (req: Request, res:Response, next: NextFunction) => {
 
 // })
+
+exports.logout_get = asyncHandler(async (req:any, res:Response, next:NextFunction) => {
+	req.logout((err: Error) => {
+		if (err) {
+		  return next(err);
+		}
+		res.redirect("/");
+	});
+});

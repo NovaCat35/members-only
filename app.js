@@ -47,6 +47,19 @@ passport.use(
   })
 );
 
+// Passport sessions and serialization
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await User.findById(id);
+    done(null, user);
+  } catch(err) {
+    done(err);
+  };
+});
+
 // view engine setup
 app.set("views", path.join(__dirname, "src/views"));
 app.set("view engine", "ejs");
@@ -91,4 +104,4 @@ app.use(function (err, req, res, next) {
 	res.render("error");
 });
 
-module.exports = app;
+module.exports = { app, passport };
