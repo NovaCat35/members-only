@@ -6,6 +6,8 @@ const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 const passport = require("passport");
 
+import {IUserDocument} from "../models/user";
+
 // CONTROLLER FOR LOGIN, SIGN-UP, & Member status FORM
 exports.homepage = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
 	const messages = await Message.find({}).exec();
@@ -48,15 +50,13 @@ exports.signup_post = [
 				let user = new User({
 					username: req.body.username,
 					password: hashedPassword,
-					member_status: false,
+					member_status: 'onlooker',
 				});
 				await user.save();
 
 				// Redirect to the main message page
-				res.redirect("/messages");
+				res.redirect(`/messages/${user.url}`);
 			});
-			console.log("out");
-			// const hashedPassword = await hashPassword(req.body.password, res);
 		}
 	}),
 ];
@@ -74,7 +74,7 @@ exports.login_get = asyncHandler(async (req: Request, res: Response, next: NextF
 // });
 
 exports.login_post = function (req: any, res: Response, next: NextFunction) {
-	passport.authenticate("local", function (err: Error, user: Object, info: Object) {
+	passport.authenticate("local", function (err: Error, user: IUserDocument, info: Object) {
 		if (err) {
 			// Issue occurred with authentication
 			return next(err);
@@ -94,7 +94,7 @@ exports.login_post = function (req: any, res: Response, next: NextFunction) {
 				return next(err);
 			}
 			// Authentication successful, render to messages page
-			return res.redirect("/messages");
+			return res.redirect(`/messages/${user.url}`);
 		});
 	})(req, res, next);
 };

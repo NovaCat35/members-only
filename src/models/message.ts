@@ -15,7 +15,7 @@ const MessageSchema = new Schema({
 	post_date: { type: Date, default: Date.now, required: true },
 });
 
-MessageSchema.virtual("formate_date").get(function (this: IMessage) {
+MessageSchema.virtual("format_date").get(function (this: IMessage) {
 	return DateTime.fromJSDate(this.post_date).toLocaleString(DateTime.DATE_MED);
 });
 

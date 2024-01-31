@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 // Require controller modules.
-const message_controller = require("../controllers/message-controller");
+const info_controller = require("../controllers/info-controller");
 const form_controller = require("../controllers/form-controller");
 
 /* GET home page. */
@@ -16,7 +16,8 @@ router.post('/login', form_controller.login_post);
 
 router.get('/logout', form_controller.logout_get);
 
-router.get('/messages', message_controller.message_list);
+router.get('/messages/:id', info_controller.message_list);
+router.get('/profile/:id', info_controller.profile_get);
 
 
 module.exports = router;

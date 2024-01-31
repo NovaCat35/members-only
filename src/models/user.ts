@@ -1,12 +1,25 @@
+import { Document, Schema, model } from 'mongoose';
 
-const mongoose = require("mongoose");
+interface IUser {
+    username: string;
+    password: string;
+    member_status: string;
+}
 
-const Schema = mongoose.Schema;
+export interface IUserDocument extends IUser, Document {
+    // Define additional instance methods or properties here
+    url: string;
+}
 
 const UserSchema = new Schema({
-	username: { type: String, required: true },
-	password: { type: String, required: true },
-	member_status: { type: Boolean, required: true },
+    username: { type: String, required: true },
+    password: { type: String, required: true },
+    member_status: { type: String, required: true },
 });
 
-module.exports = mongoose.model("User", UserSchema);
+UserSchema.virtual('url').get(function (this: IUserDocument) {
+    return `${this._id}`;
+});
+
+module.exports = model("User", UserSchema);
+

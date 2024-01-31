@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-	<%- include('templates/header') %>
    <body>
-      <h1>Messages</h1>
-      <% messages.forEach(msg => { %>
-         <div class="message-container">
-            <h1><%= msg.title %></h1>
-            <p><%= msg.message %></p>
-            <p><%= msg.user %></p>
-            <p><%= msg.post_date %></p>
-         </div>
-      <% }) %>
+      <div class="navbar">
+         <a class="profile-btn" href="/profile/<%= currUser.url %>">Profile</a>
+         <a class="logout-btn" href="/logout">Log out</a>
+      </div>   
+      <div class="message-container">
+         <h1>Messages</h1>
+         <% messages.forEach(msg => { %>
+            <div class="message-container">
+               <h1><%= msg.title %></h1>
+               <p><%= msg.message %></p>
+               <p><%= msg.user %></p>
+               <p><%= msg.post_date %></p>
+            </div>
+         <% }) %>
+      </div>
 
-      <h1>Current Users</h1>
-      <% users.forEach(user => { %>
-         <div><%= user.username %></div>
-      <% }) %>
-
-      <a class="logout-btn" href="/logout">Log out</a>
+      <div class="current-user-container">
+         <h2>Current Users</h2>
+         <% users.forEach(user => { %>
+            <div><%= user.username %></div>
+         <% }) %>
+      </div>
    </body>
 </html>
