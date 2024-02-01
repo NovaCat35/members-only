@@ -137,7 +137,7 @@ exports.status_admin_post = [
 		const errors = validationResult(req);
 		const user = await User.findById(req.params.id).exec();
 
-		if (!errors.isEmpty() || req.body.member_password !== process.env.SECRET_ADMIN_PASS) {
+		if (!errors.isEmpty() || req.body.admin_password !== process.env.SECRET_ADMIN_PASS) {
 			res.render("auth_status", {
 				title: "Status Page",
 				user: user,
@@ -175,3 +175,6 @@ exports.message_post = [
 		}
 	}),
 ];
+exports.message_delete = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
+	
+});

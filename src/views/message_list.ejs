@@ -28,6 +28,9 @@
 					<p><%= msg.title %></p>
 					<p><%= msg.message %></p>
 				</div>
+				<% if(user.member_status == 'admin')  { %>
+					<a href="/messages/<%= user.url %>/delete">Delete</a>
+				<% } %>
 			</div>
 			<% }) %>
 		</div>

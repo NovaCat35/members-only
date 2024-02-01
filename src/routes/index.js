@@ -18,6 +18,7 @@ router.get('/logout', form_controller.logout_get);
 
 router.get('/messages/:id', info_controller.message_list);
 router.post('/messages/:id/post', form_controller.message_post);
+router.post('/messages/:id/delete', form_controller.message_delete);
 
 router.get('/auth-status/:id', info_controller.status_page_get);
 router.post('/auth-status/:id/member', form_controller.status_member_post);

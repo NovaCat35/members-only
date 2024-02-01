@@ -1,10 +1,11 @@
 # MEMBERS ONLY
-Welcome to this corner of the secret web! This site is an exclusive clubhouse where veiled within are anonymous musings, obscured data, and cryptic authors. Sound interesting? Then start by joining our elusive clubhouse today! 🤫
+Welcome to this corner of the secret web! This site is an exclusive clubhouse where veiled within are anonymous musings, obscured data, and cryptic authors. Sound interesting? Then start by joining our elusive clubhouse today! 
 
-⚠️ This project is currently a WORK IN PROGRESS ⚠️
+⚠️ This project is currently a WORK IN PROGRESS 😎
+
 Planning on finishing this within the next 3 days (styling and final testings)
 
-# Features 🎯
+## Features 🎯
 - Ability to add messages & replies 
 - Authentication & security configuration
 - Session continuity
@@ -22,7 +23,7 @@ Planning on finishing this within the next 3 days (styling and final testings)
 ## Hosting Platforms 🌐
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas): for cloud-based MongoDB hosting
 
-# Challenges 🔥
+## Challenges 🔥
 When trying to implement the sign-up and login functionality using bcrypt, I ran into a lot of errors with bcrypt missing variables issues. A lot of this was partially due to the changing around of my logic for modularity so the initial code had code faults in the logic since app.js contains the bulk of the passport initialization. I eventually fix this when I realize my logic order was the issue, so I ddi a double take and redid earlier code plans.
 
 ## Installation Guide ⚙️
