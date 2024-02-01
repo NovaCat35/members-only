@@ -23,6 +23,8 @@ router.get('/auth-status/:id', info_controller.status_page_get);
 router.post('/auth-status/:id/member', form_controller.status_member_post);
 router.post('/auth-status/:id/admin', form_controller.status_admin_post);
 
+router.get('/admin-access/:id', info_controller.admin_get);
+
 router.get('/profile/:id', info_controller.profile_get);
 
 

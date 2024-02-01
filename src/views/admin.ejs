@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title><%= title %></title>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+	</head>
+	<body>
+		<div class="current-user-container">
+			<h2>Current Users</h2>
+			<% users_list.forEach(user => { %>
+			<div><%= user.username %></div>
+			<% }) %>
+		</div>
+	</body>
+</html>

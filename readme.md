@@ -1,13 +1,29 @@
 # MEMBERS ONLY
-Welcome to this corner of the secret web! This site is an exclusive clubhouse where veiled within are anonymous musings, obscured data, and cryptic authors. Sound interesting? Then start by joining our elusive fellowship today! 🤫
-
-Early planning goals: sign-up / login authentication, processing user posts and keep database session.
-
+Welcome to this corner of the secret web! This site is an exclusive clubhouse where veiled within are anonymous musings, obscured data, and cryptic authors. Sound interesting? Then start by joining our elusive clubhouse today! 🤫
 
 ⚠️ This project is currently a WORK IN PROGRESS ⚠️
+Planning on finishing this within the next 3 days (styling and final testings)
+
+# Features 🎯
+- Ability to add messages & replies 
+- Authentication & security configuration
+- Session continuity
+- Users with different abilities and permissions : 
+   - Admin: ability to delete posts & see all available users
+   - Member: see hidden details, post author, and post date 
+   - All users: ability to see profile status and post messages
+
+## Technologies Used 🚀
+- **Backend:** Node.js, Express.js, TypeScript
+- **Stylesheet Language:** SCSS
+- **View Engine:** EJS
+- **Database:** MongoDB
+
+## Hosting Platforms 🌐
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas): for cloud-based MongoDB hosting
 
 # Challenges 🔥
-When trying to implement the sign-up and login functionality using bcrypt, I ran into a lot of errors with bcrypt missing variables and 500 server issues. A lot of this was partially due to the changing around of my logic for modularity so the initial code had code faults in the logic since app.js contains the bulk of the passport initialization. I eventually fix this through trials and errors by taking a step back and reanalyzing my code logic.
+When trying to implement the sign-up and login functionality using bcrypt, I ran into a lot of errors with bcrypt missing variables issues. A lot of this was partially due to the changing around of my logic for modularity so the initial code had code faults in the logic since app.js contains the bulk of the passport initialization. I eventually fix this when I realize my logic order was the issue, so I ddi a double take and redid earlier code plans.
 
 ## Installation Guide ⚙️
 ### Development

@@ -10,6 +10,7 @@
 		<div class="navbar">
 			<div class="nav-left"><a class="home" href="/messages/<%= user.url %>">HOME</a></div>
 			<div class="nav-right">
+				<a class="admin-mode" href="/admin-access/<%= user.url %>">Admin Access</a>
 				<a class="auth-status-btn" href="/auth-status/<%= user.url %>">Status Access</a>
 				<a class="profile-btn" href="/profile/<%= user.url %>">Profile</a>
 				<a class="logout-btn" href="/logout">Log out</a>
@@ -31,12 +32,6 @@
 			<% }) %>
 		</div>
 
-		<div class="current-user-container">
-			<h2>Current Users</h2>
-			<% users_list.forEach(user => { %>
-			<div><%= user.username %></div>
-			<% }) %>
-		</div>
 		<div class="message-form-container">
 			<form action="/messages/<%= user.url %>/post" method="post">
 				<input type="text" name="title" id="title" placeholder="What's on your mind?" required />
