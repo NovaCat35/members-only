@@ -17,7 +17,7 @@ exports.message_list = asyncHandler(async (req: Request, res: Response, next: Ne
 
 
 exports.profile_get = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-	const [user, userMessages] = await Promise.all([User.findById(req.params.id).exec(), Message.find({ user: req.params.id }).exec()]);
+	const [user, userMessages] = await Promise.all([User.findById(req.params.id).exec(), Message.find({ user: req.params.id }).sort({post_date : -1}).exec()]);
 	res.render("profile", {
 		title: "Profile Page",
 		user: user,
