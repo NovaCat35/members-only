@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-   <body>
-      <div class="navbar">
-         <a class="profile-btn" href="/profile/<%= currUser.url %>">Profile</a>
-         <a class="logout-btn" href="/logout">Log out</a>
-      </div>   
-      <div class="message-container">
-         <h1>Messages</h1>
-         <% messages.forEach(msg => { %>
-            <div class="message-container">
-               <h1><%= msg.title %></h1>
-               <p><%= msg.message %></p>
-               <p><%= msg.user %></p>
-               <p><%= msg.post_date %></p>
-            </div>
-         <% }) %>
-      </div>
+	<head>
+		<title><%= title %></title>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<link rel="stylesheet" href="/stylesheets/messages-page.css" />
+		<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+	</head>
+	<body>
+		<div class="navbar">
+			<div class="nav-left"><a class="home" href="/messages/<%= user.url %>">HOME</a></div>
+			<div class="nav-right">
+				<a class="auth-status-btn" href="/auth-status/<%= user.url %>">Status Access</a>
+				<a class="profile-btn" href="/profile/<%= user.url %>">Profile</a>
+				<a class="logout-btn" href="/logout">Log out</a>
+			</div>
+		</div>
+		<div class="message-container">
+			<h1>Messages</h1>
+			<% messages.forEach(msg => { %>
+			<div class="message-container">
+				<h1><%= msg.title %></h1>
+				<p><%= msg.message %></p>
+				<p><%= msg.user %></p>
+				<p><%= msg.post_date %></p>
+			</div>
+			<% }) %>
+		</div>
 
-      <div class="current-user-container">
-         <h2>Current Users</h2>
-         <% users.forEach(user => { %>
-            <div><%= user.username %></div>
-         <% }) %>
-      </div>
-   </body>
+		<div class="current-user-container">
+			<h2>Current Users</h2>
+			<% users.forEach(user => { %>
+			<div><%= user.username %></div>
+			<% }) %>
+		</div>
+	</body>
 </html>

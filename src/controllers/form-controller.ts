@@ -6,7 +6,7 @@ const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 const passport = require("passport");
 
-import {IUserDocument} from "../models/user";
+import { IUserDocument } from "../models/user";
 
 // CONTROLLER FOR LOGIN, SIGN-UP, & Member status FORM
 exports.homepage = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
@@ -50,7 +50,7 @@ exports.signup_post = [
 				let user = new User({
 					username: req.body.username,
 					password: hashedPassword,
-					member_status: 'onlooker',
+					member_status: "onlooker",
 				});
 				await user.save();
 
@@ -108,3 +108,46 @@ exports.logout_get = asyncHandler(async (req: any, res: Response, next: NextFunc
 	});
 });
 
+exports.status_member_post = [
+	body("member_password", "Invalid password").trim().notEmpty().escape(),
+
+	asyncHandler(async (req: any, res: Response, next: NextFunction) => {
+		const errors = validationResult(req);
+		const user = await User.findById(req.params.id).exec();
+
+		if (!errors.isEmpty() || req.body.member_password !== process.env.SECRET_MEMBER_PASS) {
+			res.render("auth_status", {
+				title: "Status Page",
+				user: user,
+				member_error: true,
+				errors: errors.array(),
+			});
+		} else {
+			user.member_status = "member"; 
+			await user.save();
+			res.redirect(`/messages/${req.params.id}`);
+		}
+	}),
+];
+
+exports.status_admin_post = [
+	body("admin_password", "Invalid password").trim().notEmpty().escape(),
+
+	asyncHandler(async (req: any, res: Response, next: NextFunction) => {
+		const errors = validationResult(req);
+		const user = await User.findById(req.params.id).exec();
+
+		if (!errors.isEmpty() || req.body.member_password !== process.env.SECRET_ADMIN_PASS) {
+			res.render("auth_status", {
+				title: "Status Page",
+				user: user,
+				admin_error: true,
+				errors: errors.array(),
+			});
+		} else {
+			user.member_status = "admin"; 
+			await user.save();
+			res.redirect(`/messages/${req.params.id}`);
+		}
+	}),
+];

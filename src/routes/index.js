@@ -17,6 +17,11 @@ router.post('/login', form_controller.login_post);
 router.get('/logout', form_controller.logout_get);
 
 router.get('/messages/:id', info_controller.message_list);
+
+router.get('/auth-status/:id', info_controller.status_page_get);
+router.post('/auth-status/:id/member', form_controller.status_member_post);
+router.post('/auth-status/:id/admin', form_controller.status_admin_post);
+
 router.get('/profile/:id', info_controller.profile_get);
 
 

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
-	<%- include('templates/header') %>
-  <body>
-    <%- include('templates/navbar') %>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <div class="opts-container">
-      <a href="/login">Login</a>
-      <a href="/signup">Sign Up</a>
-    </div>
-  </body>
+	<head>
+		<title><%= title %></title>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<link rel="stylesheet" href="/stylesheets/homepage.css" />
+		<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+	</head>
+	<body>
+		<h1><%= title %></h1>
+		<p>Welcome to <%= title %></p>
+		<div class="opts-container">
+			<a href="/login">Login</a>
+			<a href="/signup">Sign Up</a>
+		</div>
+	</body>
 </html>

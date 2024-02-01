@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-	<%- include('templates/header') %>
-<body>
-   <form action="" method="post">
-      <div class="form-opt">
-         <label for="username">Name *</label>
-         <input type="text" name="username" id="username" placeholder="Alexander Hamilton" value="<%= (typeof username !=='undefined') ? username : '' %>" required>
-      </div>
-      <div class="form-opt">
-         <label for="password">Password *</label>
-         <input type="password" name="password" id="password" minlength="8" required>
-      </div>
-      <div class="form-opt">
-         <label for="password-confirm">Password Confirm *</label>
-         <input type="password" name="password_confirmation" id="password-confirm" minlength="8" required>
-      </div>
+	<head>
+		<title><%= title %></title>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+	</head>
+	<body>
+		<form action="" method="post">
+			<div class="form-opt">
+				<label for="username">Name *</label>
+				<input type="text" name="username" id="username" placeholder="Alexander Hamilton" value="<%= (typeof username !=='undefined') ? username : '' %>" required />
+			</div>
+			<div class="form-opt">
+				<label for="password">Password *</label>
+				<input type="password" name="password" id="password" minlength="8" required />
+			</div>
+			<div class="form-opt">
+				<label for="password-confirm">Password Confirm *</label>
+				<input type="password" name="password_confirmation" id="password-confirm" minlength="8" required />
+			</div>
 
-      <button type="submit">Sign Up</button>
-   </form>
-   <% if(typeof errors !== 'undefined' || typeof password_error !== 'undefined') { %>
-      <div><%= password_error %></div>
-   <% } %>
-</body>
+			<button type="submit">Sign Up</button>
+		</form>
+		<% if(typeof errors !== 'undefined' || typeof password_error !== 'undefined') { %>
+		<div><%= password_error %></div>
+		<% } %>
+	</body>
 </html>

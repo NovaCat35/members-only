@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-	<%- include('templates/header') %>
-<body>
-   <form action="" method="post">
-      <div class="form-opt">
-         <label for="username">Username</label>
-         <input type="text" name="username" id="username" value="<%= (typeof username !== 'undefined') ? username : '' %>" required>
-      </div>
-      <div class="form-opt">
-         <label for="password">Password</label>
-         <input type="password" name="password" id="password" required>
-      </div>
-      <button type="submit">Log In</button>
-   </form>
-   <% if (typeof error !== 'undefined') { %>
-      <p><%= error %></p>
-   <% } %>
-</body>
+	<head>
+		<title><%= title %></title>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+	</head>
+	<body>
+		<form action="" method="post">
+			<div class="form-opt">
+				<label for="username">Username</label>
+				<input type="text" name="username" id="username" value="<%= (typeof username !== 'undefined') ? username : '' %>" required />
+			</div>
+			<div class="form-opt">
+				<label for="password">Password</label>
+				<input type="password" name="password" id="password" required />
+			</div>
+			<button type="submit">Log In</button>
+		</form>
+		<% if (typeof error !== 'undefined') { %>
+		<p><%= error %></p>
+		<% } %>
+	</body>
 </html>

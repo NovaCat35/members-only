@@ -1,5 +1,3 @@
-@import './homepage.scss';
-
 // Reset box model and margin/padding
 *,
 *::before,
@@ -51,12 +49,27 @@ a {
 }
 
 /**********************
-* * * HOMEPAGE
+* * * NAVBAR
 ***********************/
-
+.navbar {
+   display: flex;
+	margin-bottom: 20px;
+   .nav-right {
+      display: flex;
+      gap: 25px;
+      margin-left: auto;
+   }
+}
 
 /**********************
-* * * LOGINPAGE SETUP
+* * * ERRORS
 ***********************/
+.error {
+	display: block;
+	color: red;
+}
 
+.hidden {
+	display: none;
+}
 
