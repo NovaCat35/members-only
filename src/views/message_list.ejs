@@ -15,23 +15,34 @@
 				<a class="logout-btn" href="/logout">Log out</a>
 			</div>
 		</div>
-		<div class="message-container">
+		<div class="main-message-page-container">
 			<h1>Messages</h1>
 			<% messages.forEach(msg => { %>
 			<div class="message-container">
-				<h1><%= msg.title %></h1>
-				<p><%= msg.message %></p>
-				<p><%= msg.user %></p>
-				<p><%= msg.post_date %></p>
+				<div class="message-info">
+					<p><%= msg.user.username %></p>
+					<p><%= msg.format_date %></p>
+				</div>
+				<div class="message-texts">
+					<p><%= msg.title %></p>
+					<p><%= msg.message %></p>
+				</div>
 			</div>
 			<% }) %>
 		</div>
 
 		<div class="current-user-container">
 			<h2>Current Users</h2>
-			<% users.forEach(user => { %>
+			<% users_list.forEach(user => { %>
 			<div><%= user.username %></div>
 			<% }) %>
+		</div>
+		<div class="message-form-container">
+			<form action="/messages/<%= user.url %>/post" method="post">
+				<input type="text" name="title" id="title" placeholder="What's on your mind?" required />
+				<input type="text" name="message" id="message" placeholder="Prescribe some details, doc!" required />
+				<button>Send</button>
+			</form>
 		</div>
 	</body>
 </html>

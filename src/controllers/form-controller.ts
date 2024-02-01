@@ -123,7 +123,7 @@ exports.status_member_post = [
 				errors: errors.array(),
 			});
 		} else {
-			user.member_status = "member"; 
+			user.member_status = "member";
 			await user.save();
 			res.redirect(`/messages/${req.params.id}`);
 		}
@@ -145,8 +145,32 @@ exports.status_admin_post = [
 				errors: errors.array(),
 			});
 		} else {
-			user.member_status = "admin"; 
+			user.member_status = "admin";
 			await user.save();
+			res.redirect(`/messages/${req.params.id}`);
+		}
+	}),
+];
+
+exports.message_post = [
+	body("title", "Invalid title").trim().notEmpty().escape(),
+	body("message", "Invalid message").trim().notEmpty().escape(),
+
+	asyncHandler(async (req: any, res: Response, next: NextFunction) => {
+		const errors = validationResult(req);
+
+		if (!errors.isEmpty()) {
+			console.log(errors.array());
+			return res.status(400).send("Invalid data provided");
+		} else {
+			const message = new Message({
+				title: req.body.title,
+				message: req.body.message,
+				user: req.params.id,
+				post_date: new Date(),
+			});
+
+			await message.save();
 			res.redirect(`/messages/${req.params.id}`);
 		}
 	}),

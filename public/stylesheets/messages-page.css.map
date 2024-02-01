@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"messages-page.css"}
+{"version":3,"sourceRoot":"","sources":["../scss/messages-page.scss"],"names":[],"mappings":"AACC;EACC;EACA;;AACA;EACC;EACA;EACA;;AAED;EACC;EACA;;;AAKH;EACC;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AACA;EACC;EACA;EACA;EACA;EACA;EACA;;AACA;EACC;EACA;EACA;;AACA;EACC;;AAED;EACC;;AAGF;EACC;EACM;EACN;EACM;EACA","file":"messages-page.css"}

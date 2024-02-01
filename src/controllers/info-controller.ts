@@ -11,17 +11,10 @@ exports.message_list = asyncHandler(async (req: Request, res: Response, next: Ne
 		title: "Message List",
 		messages: messages,
 		user: currUser,
-		users: users,
+		users_list: users,
 	});
 });
 
-exports.message_form_get = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-	res.render("message_form", {
-		title: "Message Form",
-	});
-});
-
-exports.message_form_post = [];
 
 exports.profile_get = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
 	const [user, userMessages] = await Promise.all([User.findById(req.params.id).exec(), Message.find({ username: req.params.id }).exec()]);
