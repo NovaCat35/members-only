@@ -6,7 +6,7 @@ const { body, validationResult } = require("express-validator");
 
 // CONTROLLER FOR MESSAGE POSTS
 exports.message_list = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-	const [messages, currUser, users] = await Promise.all([Message.find().populate("user").exec(), User.findById(req.params.id).exec(), User.find().exec()]);
+	const [messages, currUser, users] = await Promise.all([Message.find().populate("user").sort({post_date : -1}).exec(), User.findById(req.params.id).exec(), User.find().exec()]);
 	res.render("message_list", {
 		title: "Message List",
 		messages: messages,
@@ -17,7 +17,7 @@ exports.message_list = asyncHandler(async (req: Request, res: Response, next: Ne
 
 
 exports.profile_get = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-	const [user, userMessages] = await Promise.all([User.findById(req.params.id).exec(), Message.find({ username: req.params.id }).exec()]);
+	const [user, userMessages] = await Promise.all([User.findById(req.params.id).exec(), Message.find({ user: req.params.id }).exec()]);
 	res.render("profile", {
 		title: "Profile Page",
 		user: user,

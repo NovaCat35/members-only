@@ -1,15 +1,27 @@
+.main-message-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: auto;
+  height: 60vh;
+}
 .main-message-page-container .message-container {
   border: 2px solid black;
   display: flex;
+  padding: 10px;
+  height: 120px;
 }
 .main-message-page-container .message-container .message-info {
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
+  margin-right: 10px;
 }
-.main-message-page-container .message-container .message-text {
+.main-message-page-container .message-container .message-texts {
+  border-left: 1px solid black;
   display: flex;
   flex-direction: column;
+  padding-left: 10px;
+  overflow: auto;
 }
 
 .message-form-container {
@@ -21,6 +33,7 @@
   border-radius: 10px;
   transform: translateX(-50%);
   z-index: 10;
+  background-color: white;
 }
 .message-form-container form {
   display: flex;

@@ -16,7 +16,7 @@ const MessageSchema = new Schema({
 });
 
 MessageSchema.virtual("format_date").get(function (this: IMessage) {
-	return DateTime.fromJSDate(this.post_date).toLocaleString(DateTime.DATE_MED);
+	return DateTime.fromJSDate(this.post_date).toLocaleString(DateTime.DATETIME_MED);
 });
 
 module.exports = mongoose.model("Message", MessageSchema);

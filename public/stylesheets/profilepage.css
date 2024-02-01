@@ -1,0 +1,17 @@
+.message-container {
+  margin-top: 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+}
+.message-container .message-header {
+  display: flex;
+}
+.message-container .message-header .title {
+  font-size: 1.1rem;
+}
+.message-container .message-header .date {
+  margin-left: auto;
+}
+
+/*# sourceMappingURL=profilepage.css.map */

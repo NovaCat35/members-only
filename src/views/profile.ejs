@@ -3,6 +3,7 @@
 	<head>
 		<title><%= title %></title>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<link rel="stylesheet" href="/stylesheets/profilepage.css" />
 		<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
 	</head>
 	<body>
@@ -19,10 +20,13 @@
 				<h2>Personal Messages</h2>
 				<% userMessages.forEach((message) => {%>
 				<div class="message-container">
-					<p><%= message.title %></p>
-					<p><%= message.message %></p>
-					<p><%= message.post_date %></p>
-					<p><%= message.format_date %></p>
+					<div class="message-header">
+						<p class="title"><%= message.title %></p>
+						<p class="date"><%= message.format_date %></p>
+					</div>
+					<div class="message-info">
+						<p><%= message.message %></p>
+					</div>
 				</div>
 				<% }); %>
 			</div>
