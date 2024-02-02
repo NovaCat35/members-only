@@ -39,7 +39,7 @@
 
 		<div class="message-form-container">
 			<form action="/messages/<%= user.url %>/post" method="post">
-				<input type="text" name="title" id="title" placeholder="What's on your mind?" required />
+				<input type="text" name="title" id="title" placeholder="What's on your mind?" minlength="2" required/>
 				<input type="text" name="message" id="message" placeholder="Prescribe some details, doc!" required />
 				<button>Send</button>
 			</form>

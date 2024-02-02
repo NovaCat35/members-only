@@ -49,8 +49,9 @@
 }
 .message-form-container form input {
   border: none;
-  width: 100%;
+  width: 80%;
   outline: none;
+  margin-right: auto;
 }
 .message-form-container form input:first-child {
   font-size: 1.2rem;

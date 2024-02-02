@@ -1,0 +1,36 @@
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	.form-opt {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		input {
+			padding: 10px 5px;
+			border-radius: 10px;
+			border: 2px solid rgb(101, 101, 101);
+		}
+		.password-container {
+			position: relative;
+			// width: fit-content;
+			input#password, input#password-confirm{
+				width: 100%;
+			}
+			img.eye-icon, img.eye-icon2 {
+				cursor: pointer;
+				position: absolute;
+				top: 8px;
+				right: 10px;
+				width: 25px;
+			}
+		}
+	}
+	button {
+		align-self: center;
+		width: 330px;
+		padding: 10px 30px;
+		font-size: 1rem;
+		border-radius: 10px;
+	}
+}

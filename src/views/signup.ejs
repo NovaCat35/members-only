@@ -3,9 +3,11 @@
 	<head>
 		<title><%= title %></title>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<link rel="stylesheet" href="/stylesheets/signuppage.css" />
 		<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
 	</head>
 	<body>
+		<%- include('templates/navbar-home') %>
 		<form action="" method="post">
 			<div class="form-opt">
 				<label for="username">Name *</label>
@@ -13,17 +15,23 @@
 			</div>
 			<div class="form-opt">
 				<label for="password">Password *</label>
-				<input type="password" name="password" id="password" minlength="8" required />
+				<div class="password-container">
+					<input type="password" name="password" id="password" minlength="8" required />
+					<img class="eye-icon" src="/images/eye.svg" alt="password eye-icon" />
+				</div>
 			</div>
 			<div class="form-opt">
 				<label for="password-confirm">Password Confirm *</label>
-				<input type="password" name="password_confirmation" id="password-confirm" minlength="8" required />
+				<div class="password-container">
+					<input type="password" name="password_confirmation" id="password-confirm" minlength="8" required />
+					<img class="eye-icon2" src="/images/eye.svg" alt="password eye-icon" />
+				</div>
 			</div>
-
+			<% if(typeof errors !== 'undefined' || typeof password_error !== 'undefined') { %>
+				<div class="error"><%= password_error %></div>
+			<% } %>
 			<button type="submit">Sign Up</button>
 		</form>
-		<% if(typeof errors !== 'undefined' || typeof password_error !== 'undefined') { %>
-		<div><%= password_error %></div>
-		<% } %>
 	</body>
+	<script src="/javascripts/toggle_password.js"></script>
 </html>
