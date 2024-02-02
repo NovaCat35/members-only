@@ -10,7 +10,7 @@
 		<%- include('templates/navbar-home') %>
 		<form action="" method="post">
 			<div class="form-opt">
-				<label for="username">Name *</label>
+				<label for="username">Username *</label>
 				<input type="text" name="username" id="username" placeholder="Alexander Hamilton" value="<%= (typeof username !=='undefined') ? username : '' %>" required />
 			</div>
 			<div class="form-opt">
@@ -27,8 +27,15 @@
 					<img class="eye-icon2" src="/images/eye.svg" alt="password eye-icon" />
 				</div>
 			</div>
-			<% if(typeof errors !== 'undefined' || typeof password_error !== 'undefined') { %>
+			<% if(typeof password_error !== 'undefined') { %>
 				<div class="error"><%= password_error %></div>
+			<% } %>
+			<% if(typeof errors !== 'undefined' && errors.length > 0) { %>
+				<ul>
+					<% errors.forEach(error => { %>
+						<li class="error-msg"><%= error.msg %>!</li>
+					<% }) %>
+				</ul>
 			<% } %>
 			<button type="submit">Sign Up</button>
 		</form>

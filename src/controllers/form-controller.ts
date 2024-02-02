@@ -30,34 +30,48 @@ exports.signup_post = [
 
 	asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
 		const errors = validationResult(req);
+		const userExist = await User.findOne({ username: req.body.username });
+		let errorType = "";
 
 		// Check if password & confirm password matches or there's errors
 		if (!errors.isEmpty() || req.body.password !== req.body.password_confirmation) {
+			errorType = "Passwords do not match, please try again.";
 			res.render("signup", {
 				title: "Sign-up Page",
 				username: req.body.username,
 				errors: errors.array(),
-				password_error: "Passwords do not match, please try again.",
+				password_error: errorType,
 			});
-		} else {
-			// Hash and salt
-			bcrypt.hash(req.body.password, 10, async (err: Error, hashedPassword: String) => {
-				// Check if hashing error
-				if (err) {
-					console.error("Error hashing password:", err);
-					return res.status(500).send("Internal Server Error");
-				}
-				let user = new User({
-					username: req.body.username,
-					password: hashedPassword,
-					member_status: "onlooker",
-				});
-				await user.save();
-
-				// Redirect to the main message page
-				res.redirect(`/messages/${user.url}`);
-			});
+			return;
 		}
+
+		if (userExist) {
+			errorType = "Username taken, try another name.";
+			res.render("signup", {
+				title: "Sign-up Page",
+				username: req.body.username,
+				password_error: errorType,
+			});
+			return;
+		}
+
+		// Hash and salt
+		bcrypt.hash(req.body.password, 10, async (err: Error, hashedPassword: String) => {
+			// Check if hashing error
+			if (err) {
+				console.error("Error hashing password:", err);
+				return res.status(500).send("Internal Server Error");
+			}
+			let user = new User({
+				username: req.body.username,
+				password: hashedPassword,
+				member_status: "onlooker",
+			});
+			await user.save();
+
+			// Redirect to the main message page
+			res.redirect(`/messages/${user.url}`);
+		});
 	}),
 ];
 
@@ -74,21 +88,19 @@ exports.login_get = asyncHandler(async (req: Request, res: Response, next: NextF
 // });
 
 exports.login_post = function (req: any, res: Response, next: NextFunction) {
-	passport.authenticate("local", function (err: Error, user: IUserDocument, info: Object) {
+	passport.authenticate("local", function (err: Error, user: IUserDocument, info: any) {
 		if (err) {
 			// Issue occurred with authentication
 			return next(err);
 		}
-
 		if (!user) {
 			// Authentication failed, no user found. Render to login page with error message
 			return res.render("login", {
 				title: "Login Page",
 				username: req.body.username,
-				error: "Invalid username or password",
+				error: info.message,
 			});
 		}
-
 		req.logIn(user, function (err: Error) {
 			if (err) {
 				return next(err);
@@ -189,7 +201,7 @@ exports.message_post = [
 function replaceEncodedCharacters(input: String) {
 	// Replace "&amp;#x2F;" and  "&#x2F;" with "/"
 	input = input.replace(/&amp;#x2F;|&#x2F;/g, "/");
-	
+
 	// Replace "&#x27;" with single quote "'"
 	input = input.replace(/&#x27;/g, "'");
 

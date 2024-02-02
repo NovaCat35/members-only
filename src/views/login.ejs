@@ -20,11 +20,11 @@
 					<img class="eye-icon" src="/images/eye.svg" alt="password eye-icon" />
 				</div>
 			</div>
+			<% if (typeof error !== 'undefined') { %>
+			<p class="error"><%= error %></p>
+			<% } %>
 			<button type="submit">Log In</button>
 		</form>
-		<% if (typeof error !== 'undefined') { %>
-		<p><%= error %></p>
-		<% } %>
 	</body>
 	<script src="/javascripts/toggle_password.js"></script>
 </html>
