@@ -113,9 +113,12 @@ exports.status_member_post = [
 
 	asyncHandler(async (req: any, res: Response, next: NextFunction) => {
 		const errors = validationResult(req);
+		const secretPassword = process.env.SECRET_MEMBER_PASS?.toLowerCase();
+		const userInput = req.body.member_password.toLowerCase();
 		const user = await User.findById(req.params.id).exec();
 
-		if (!errors.isEmpty() || req.body.member_password !== process.env.SECRET_MEMBER_PASS) {
+		if (!errors.isEmpty() || (secretPassword && userInput !== secretPassword)) {
+			// user did not enter correct password for access status, return to form page
 			res.render("auth_status", {
 				title: "Status Page",
 				user: user,
@@ -135,9 +138,12 @@ exports.status_admin_post = [
 
 	asyncHandler(async (req: any, res: Response, next: NextFunction) => {
 		const errors = validationResult(req);
+		const secretPassword = process.env.SECRET_ADMIN_PASS?.toLowerCase();
+		const userInput = req.body.admin_password.toLowerCase();
 		const user = await User.findById(req.params.id).exec();
 
-		if (!errors.isEmpty() || req.body.admin_password !== process.env.SECRET_ADMIN_PASS) {
+		if (!errors.isEmpty() || (secretPassword && userInput !== secretPassword)) {
+			// user did not enter correct password for access status, return to form page
 			res.render("auth_status", {
 				title: "Status Page",
 				user: user,
@@ -170,11 +176,22 @@ exports.message_post = [
 				post_date: new Date(),
 			});
 
+			message.title = replaceEncodedCharacters(message.title);
+			message.message = replaceEncodedCharacters(message.message);
+
 			await message.save();
 			res.redirect(`/messages/${req.params.id}`);
 		}
 	}),
 ];
-exports.message_delete = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
+
+// Function to replace encoded characters
+function replaceEncodedCharacters(input: String) {
+	// Replace "&amp;#x2F;" and  "&#x2F;" with "/"
+	input = input.replace(/&amp;#x2F;|&#x2F;/g, "/");
 	
-});
+	// Replace "&#x27;" with single quote "'"
+	input = input.replace(/&#x27;/g, "'");
+
+	return input;
+}
