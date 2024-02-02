@@ -25,11 +25,13 @@
 					<p><%= msg.format_date %></p>
 				</div>
 				<div class="message-texts">
-					<p><%= msg.title %></p>
+					<p class="title"><%= msg.title %></p>
 					<p><%= msg.message %></p>
 				</div>
-				<% if(user.member_status == 'admin')  { %>
-					<a href="/messages/<%= user.url %>/delete">Delete</a>
+				<% if(user.member_status == 'admin') { %>
+					<div class="delete-btn-container">
+						<div class="delete-btn"><a href="/messages/<%= msg._id %>/delete">Delete</a></div>
+					</div>
 				<% } %>
 			</div>
 			<% }) %>

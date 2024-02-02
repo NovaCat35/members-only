@@ -38,3 +38,11 @@ exports.admin_get = asyncHandler(async (req: Request, res: Response, next: NextF
 		users_list: users,
 	});
 });
+
+exports.message_delete = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+	const message = await Message.findById(req.params.id).populate('user').exec();
+	const user_id = message.user.url; // save the user_id of that message so we can redirect back to the messages page
+	
+	await message.deleteOne({_id: req.params.id});
+	res.redirect(`/messages/${user_id}`);
+});
