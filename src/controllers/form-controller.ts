@@ -20,7 +20,7 @@ exports.signup_post = [
 	body("password", "Invalid password").trim().notEmpty().isLength({ min: 8 }).withMessage("Password must be greater than 8 characters.").escape(),
 	body("password_confirmation", "Invalid password").trim().notEmpty().isLength({ min: 8 }).withMessage("Password must be greater than 8 characters.").escape(),
 
-	asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+	asyncHandler(async (req: any, res: Response, next: NextFunction) => {
 		const errors = validationResult(req);
 		const userExist = await User.findOne({ username: req.body.username });
 		let errorType = "";
@@ -61,8 +61,13 @@ exports.signup_post = [
 			});
 			await user.save();
 
-			// Redirect to the main message page
-			res.redirect(`/`);
+			// Redirect to the main message page and establish login session.
+			req.login(user, function (err: Error) {
+				if (err) {
+					console.log(err);
+				}
+				return res.redirect("/");
+			});
 		});
 	}),
 ];
