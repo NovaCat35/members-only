@@ -5,17 +5,36 @@ const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 
 // CONTROLLER FOR MESSAGE POSTS
-exports.message_list = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-	const [messages, currUser] = await Promise.all([Message.find().populate("user").sort({post_date : -1}).exec(), User.findById(req.params.id).exec()]);
-	res.render("message_list", {
-		title: "Message List",
-		messages: messages,
-		user: currUser,
-	});
+exports.homepage = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
+	const messages = await Message.find({}).exec();
+	if (req.user) {
+		// we have authenticated the user, show messages
+		const [messages] = await Promise.all([Message.find().populate("user").sort({post_date : -1}).exec()]);
+		res.render("message_list", {
+			title: "Message List",
+			messages: messages,
+			user: req.user,
+		});
+	} else {
+		// no user authenticated, show default homepage
+		res.render("index", {
+			title: "Members Only",
+			messages: messages,
+		});
+	}
 });
 
-exports.profile_get = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-	const [user, userMessages] = await Promise.all([User.findById(req.params.id).exec(), Message.find({ user: req.params.id }).sort({post_date : -1}).exec()]);
+// exports.message_list = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
+// 	const [messages] = await Promise.all([Message.find().populate("user").sort({post_date : -1}).exec()]);
+// 	res.render("message_list", {
+// 		title: "Message List",
+// 		messages: messages,
+// 		user: req.user,
+// 	});
+// });
+
+exports.profile_get = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
+	const [user, userMessages] = await Promise.all([User.findById(req.user._id).exec(), Message.find({ user: req.user._id }).sort({post_date : -1}).exec()]);
 	res.render("profile", {
 		title: "Profile Page",
 		user: user,
@@ -24,14 +43,12 @@ exports.profile_get = asyncHandler(async (req: Request, res: Response, next: Nex
 });
 
 exports.status_page_get = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-	const user = await User.findById(req.params.id).exec();
 	res.render("auth_status", {
 		title: "Status Page",
-		user: user,
 	});
 });
 
-exports.admin_get = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+exports.admin_get = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
 	const users = await User.find().exec();
 	res.render("admin", {
 		title: "Admin Page",
@@ -41,8 +58,7 @@ exports.admin_get = asyncHandler(async (req: Request, res: Response, next: NextF
 
 exports.message_delete = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
 	const message = await Message.findById(req.params.id).populate('user').exec();
-	const user_id = message.user.url; // save the user_id of that message so we can redirect back to the messages page
 	
 	await message.deleteOne({_id: req.params.id});
-	res.redirect(`/messages/${user_id}`);
+	res.redirect(`/`);
 });

@@ -7,14 +7,14 @@
    </head>   
 	<body>
       <%- include('templates/navbar') %>
-		<form action="/auth-status/<%= user.url %>/member" method="post">
+		<form action="/auth-status/member" method="post">
 			<h1>Become a member</h1>
 			<label for="member_password">Password</label>
 			<input id="member_password" name="member_password" type="password" required/>
          <p class="<%= (typeof member_error !== 'undefined') ? 'error' : 'hidden error' %>">Invalid Credential</p>
 			<button type="submit">SUBMIT</button>
 		</form>
-		<form action="/auth-status/<%= user.url %>/admin" method="post">
+		<form action="/auth-status/admin" method="post">
 			<h1>Become an admin</h1>
 			<label for="admin_password">Password</label>
 			<input id="admin_password" name="admin_password" type="password" required/>

@@ -8,11 +8,13 @@
 	</head>
 	<body>
 		<div class="navbar">
-			<div class="nav-left"><a class="home" href="/messages/<%= user.url %>">HOME</a></div>
+			<div class="nav-left"><a class="home" href="/messages">HOME</a></div>
 			<div class="nav-right">
-				<a class="admin-mode" href="/admin-access/<%= user.url %>">Admin Access</a>
-				<a class="auth-status-btn" href="/auth-status/<%= user.url %>">Status Access</a>
-				<a class="profile-btn" href="/profile/<%= user.url %>">Profile</a>
+				<% if(user.member_status == 'admin') { %>
+					<a class="admin-mode" href="/admin-access">Admin Access</a>
+				<% } %>
+				<a class="auth-status-btn" href="/auth-status">Status Access</a>
+				<a class="profile-btn" href="/profile">Profile</a>
 				<a class="logout-btn" href="/logout">Log out</a>
 			</div>
 		</div>
@@ -30,7 +32,7 @@
 				</div>
 				<% if(user.member_status == 'admin') { %>
 					<div class="delete-btn-container">
-						<div class="delete-btn"><a href="/messages/<%= msg._id %>/delete">Delete</a></div>
+						<div class="delete-btn"><a href="/delete/<%= msg._id %>">Delete</a></div>
 					</div>
 				<% } %>
 			</div>
@@ -38,7 +40,7 @@
 		</div>
 
 		<div class="message-form-container">
-			<form action="/messages/<%= user.url %>/post" method="post">
+			<form action="/message-post" method="post">
 				<input type="text" name="title" id="title" placeholder="What's on your mind?" minlength="2" required/>
 				<input type="text" name="message" id="message" placeholder="Prescribe some details, doc!" required />
 				<button>Send</button>

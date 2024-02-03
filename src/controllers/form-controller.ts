@@ -9,14 +9,6 @@ const passport = require("passport");
 import { IUserDocument } from "../models/user";
 
 // CONTROLLER FOR LOGIN, SIGN-UP, & Member status FORM
-exports.homepage = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-	const messages = await Message.find({}).exec();
-	res.render("index", {
-		title: "Members Only",
-		messages: messages,
-	});
-});
-
 exports.signup_get = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
 	res.render("signup", {
 		title: "Sign-up Page",
@@ -70,7 +62,7 @@ exports.signup_post = [
 			await user.save();
 
 			// Redirect to the main message page
-			res.redirect(`/messages/${user.url}`);
+			res.redirect(`/`);
 		});
 	}),
 ];
@@ -106,7 +98,7 @@ exports.login_post = function (req: any, res: Response, next: NextFunction) {
 				return next(err);
 			}
 			// Authentication successful, render to messages page
-			return res.redirect(`/messages/${user.url}`);
+			return res.redirect(`/`);
 		});
 	})(req, res, next);
 };
@@ -127,20 +119,17 @@ exports.status_member_post = [
 		const errors = validationResult(req);
 		const secretPassword = process.env.SECRET_MEMBER_PASS?.toLowerCase();
 		const userInput = req.body.member_password.toLowerCase();
-		const user = await User.findById(req.params.id).exec();
-
 		if (!errors.isEmpty() || (secretPassword && userInput !== secretPassword)) {
 			// user did not enter correct password for access status, return to form page
 			res.render("auth_status", {
 				title: "Status Page",
-				user: user,
 				member_error: true,
 				errors: errors.array(),
 			});
 		} else {
-			user.member_status = "member";
-			await user.save();
-			res.redirect(`/messages/${req.params.id}`);
+			req.user.member_status = "member";
+			await req.user.save();
+			res.redirect(`/`);
 		}
 	}),
 ];
@@ -152,20 +141,18 @@ exports.status_admin_post = [
 		const errors = validationResult(req);
 		const secretPassword = process.env.SECRET_ADMIN_PASS?.toLowerCase();
 		const userInput = req.body.admin_password.toLowerCase();
-		const user = await User.findById(req.params.id).exec();
 
 		if (!errors.isEmpty() || (secretPassword && userInput !== secretPassword)) {
 			// user did not enter correct password for access status, return to form page
 			res.render("auth_status", {
 				title: "Status Page",
-				user: user,
 				admin_error: true,
 				errors: errors.array(),
 			});
 		} else {
-			user.member_status = "admin";
-			await user.save();
-			res.redirect(`/messages/${req.params.id}`);
+			req.user.member_status = "admin";
+			await req.user.save();
+			res.redirect(`/`);
 		}
 	}),
 ];
@@ -184,7 +171,7 @@ exports.message_post = [
 			const message = new Message({
 				title: req.body.title,
 				message: req.body.message,
-				user: req.params.id,
+				user: req.user,
 				post_date: new Date(),
 			});
 
@@ -192,7 +179,7 @@ exports.message_post = [
 			message.message = replaceEncodedCharacters(message.message);
 
 			await message.save();
-			res.redirect(`/messages/${req.params.id}`);
+			res.redirect(`/`);
 		}
 	}),
 ];
