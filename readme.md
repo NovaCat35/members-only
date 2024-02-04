@@ -70,3 +70,6 @@ npm install express-rate-limit
 
 ## Resources and Sources ℹ️
 TypeScript setup: https://blog.logrocket.com/how-to-set-up-node-typescript-express/#create-express-server-with-ts-extension
+
+
+Globe: https://www.vecteezy.com/vector-art/13531093-world-map-connection-futuristic-modern-website-background-or-cover-page-vector-for-technology-and-finance-concept-and-education-future-company

@@ -38,27 +38,40 @@ a {
 * * * BASIC SETUP
 ***********************/
 
-
 body {
-	padding: 50px;
+	padding: 40px 50px;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	color: white;
+	background-color: rgb(52, 56, 69);
 }
 
 a {
 	color: #00b7ff;
 }
 
+button {
+	cursor: pointer;
+}
+
 /**********************
 * * * NAVBAR
 ***********************/
 .navbar {
-   display: flex;
+	display: flex;
 	margin-bottom: 20px;
-   .nav-right {
-      display: flex;
-      gap: 25px;
-      margin-left: auto;
-   }
+	.nav-right {
+		display: flex;
+		gap: 25px;
+		margin-left: auto;
+	}
+	a {
+		padding: 10px 20px;
+		border-radius: 5px;
+		transition: all .4s ease-in-out;
+		&:hover {
+			background-color: rgb(76, 87, 107);
+		}
+	}
 }
 
 /**********************

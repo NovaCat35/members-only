@@ -1,12 +1,17 @@
 form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
 }
 form .form-opt {
   display: flex;
   flex-direction: column;
+  width: 70vw;
   gap: 5px;
+}
+form .form-opt label {
+  align-self: start;
 }
 form .form-opt input {
   padding: 10px 5px;
@@ -16,10 +21,12 @@ form .form-opt input {
 form .form-opt .password-container {
   position: relative;
 }
-form .form-opt .password-container input#password, form .form-opt .password-container input#password-confirm {
+form .form-opt .password-container input#password,
+form .form-opt .password-container input#password-confirm {
   width: 100%;
 }
-form .form-opt .password-container img.eye-icon, form .form-opt .password-container img.eye-icon2 {
+form .form-opt .password-container img.eye-icon,
+form .form-opt .password-container img.eye-icon2 {
   cursor: pointer;
   position: absolute;
   top: 8px;
@@ -27,11 +34,18 @@ form .form-opt .password-container img.eye-icon, form .form-opt .password-contai
   width: 25px;
 }
 form button {
+  margin-top: 30px;
   align-self: center;
   width: 330px;
-  padding: 10px 30px;
-  font-size: 1rem;
+  padding: 15px 20px;
+  font-size: 1.3rem;
   border-radius: 10px;
+  border: none;
+  color: white;
+}
+
+button {
+  background-color: rgb(39, 134, 102);
 }
 
 /*# sourceMappingURL=signuppage.css.map */

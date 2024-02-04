@@ -2,8 +2,81 @@ h1 {
 	font-size: 3rem;
 }
 
-.opts-container {
-   display: flex;
-   flex-direction: column;
-   gap: 15px;
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
+	header {
+		margin-top: 50px;
+		h1 {
+			font-size: 5rem;
+			text-align: center;
+			@media screen and (min-width: 1000px) {
+				font-size: 4.5rem;
+			}
+		}
+		p {
+         font-size: 1.2rem;
+			text-align: center;
+			margin-top: 10px;
+		}
+	}
+	.opts-container {
+		display: flex;
+		justify-content: center;
+		gap: 30px;
+		a {
+			border: 5px solid rgb(4, 177, 245);
+			border-radius: 5px;
+			padding: 10px 30px;
+			font-size: 2rem;
+		}
+		@media screen and (min-width: 1000px) {
+			position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%,-50%);
+		}
+	}
+}
+
+
+#milky-way{
+	position: absolute;
+	right: 0;
+	bottom: 10px;
+	width: 350px;
+	z-index: -55;
+}
+
+#earth {
+	width: 300px;
+	height: 300px;
+	// background: url(https://web.archive.org/web/20150807125159if_/http://www.noirextreme.com/digital/Earth-Color4096.jpg);
+	// background: url('../images/Earth-Color4096.jpg');
+	// background: url('../images/earth.webp');
+	background: url('../images/earth.jpg');
+	border-radius: 50%;
+	background-size: 610px;
+	box-shadow: inset 8px 36px 80px 36px rgb(0, 0, 0),
+	inset -6px 0 12px 4px rgba(255, 255, 255, 0.3);
+	animation-name: rotate;
+	animation-duration: 12s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	-webkit-animation-name: rotate;
+	-webkit-animation-duration: 12s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	transform: rotate(20deg); 
+}
+
+@keyframes rotate {
+	from { background-position: 0px 0px; }
+	to { background-position: 610px 0px; }
+}
+@-webkit-keyframes rotate {
+	from { background-position: 0px 0px; }
+	to { background-position: 610px 0px; }
 }

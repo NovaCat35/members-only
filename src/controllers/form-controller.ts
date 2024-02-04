@@ -122,7 +122,7 @@ exports.status_member_post = [
 
 	asyncHandler(async (req: any, res: Response, next: NextFunction) => {
 		const errors = validationResult(req);
-		const secretPassword = process.env.SECRET_MEMBER_PASS?.toLowerCase();
+		const secretPassword = process.env.SECRET_MEMBER_PASS;
 		const userInput = req.body.member_password.toLowerCase();
 		if (!errors.isEmpty() || (secretPassword && userInput !== secretPassword)) {
 			// user did not enter correct password for access status, return to form page
@@ -144,7 +144,7 @@ exports.status_admin_post = [
 
 	asyncHandler(async (req: any, res: Response, next: NextFunction) => {
 		const errors = validationResult(req);
-		const secretPassword = process.env.SECRET_ADMIN_PASS?.toLowerCase();
+		const secretPassword = process.env.SECRET_ADMIN_PASS;
 		const userInput = req.body.admin_password.toLowerCase();
 
 		if (!errors.isEmpty() || (secretPassword && userInput !== secretPassword)) {

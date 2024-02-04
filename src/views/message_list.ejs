@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<div class="navbar">
-			<div class="nav-left"><a class="home" href="/messages">HOME</a></div>
+			<div class="nav-left"><a class="home" href="/">HOME</a></div>
 			<div class="nav-right">
 				<% if(user.member_status == 'admin') { %>
 					<a class="admin-mode" href="/admin-access">Admin Access</a>
@@ -23,16 +23,18 @@
 			<% messages.forEach(msg => { %>
 			<div class="message-container">
 				<div class="message-info">
-						<p class="username"><%= msg.user.username %></p>
-						<p class="date"><%= msg.format_date %></p>
+						<p class="username <%= msg.user.member_status %>"><%= msg.user.username %></p>
 				</div>
 				<div class="message-texts">
 					<p class="title"><%= msg.title %></p>
-					<p><%= msg.message %></p>
+					<div class="texts-area">
+						<p><%= msg.message %></p>
+					</div>
+					<p class="date"><%= msg.format_date %></p>
 				</div>
 				<% if(user.member_status == 'admin') { %>
 					<div class="delete-btn-container">
-						<div class="delete-btn"><a href="/delete/<%= msg._id %>">Delete</a></div>
+						<div class="delete-btn"><a href="/delete/<%= msg._id %>">DELETE</a></div>
 					</div>
 				<% } %>
 			</div>
@@ -53,7 +55,8 @@
 	 let dates = document.querySelectorAll('.date');
 	 if(messageStatus == 'onlooker') {
 		usernames.forEach(username => {
-			username.textContent = username.textContent.replace(/[^ ]/g, "X");
+			// username.textContent = username.textContent.replace(/[^ ]/g, "X");
+			username.textContent = "Anonymous";
 		})
 		dates.forEach(date => {
 			date.textContent = date.textContent.replace(/[^ ]/g, "x");

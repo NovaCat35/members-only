@@ -1,11 +1,16 @@
 form {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	gap: 20px;
 	.form-opt {
 		display: flex;
 		flex-direction: column;
+		width: 70vw;
 		gap: 5px;
+		label {
+			align-self: start;
+		}
 		input {
 			padding: 10px 5px;
 			border-radius: 10px;
@@ -14,10 +19,12 @@ form {
 		.password-container {
 			position: relative;
 			// width: fit-content;
-			input#password, input#password-confirm{
+			input#password,
+			input#password-confirm {
 				width: 100%;
 			}
-			img.eye-icon, img.eye-icon2 {
+			img.eye-icon,
+			img.eye-icon2 {
 				cursor: pointer;
 				position: absolute;
 				top: 8px;
@@ -27,10 +34,13 @@ form {
 		}
 	}
 	button {
+		margin-top: 30px;
 		align-self: center;
 		width: 330px;
-		padding: 10px 30px;
-		font-size: 1rem;
+		padding: 15px 20px;
+		font-size: 1.3rem;
 		border-radius: 10px;
+		border: none;
+		color: white;
 	}
 }
