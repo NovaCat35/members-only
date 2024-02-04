@@ -123,13 +123,36 @@
   font-size: 1.02rem;
 }
 .username.traveler {
-  color: rgb(59, 219, 251);
+  color: rgb(47, 217, 251);
 }
 .username.member {
   color: rgb(251, 158, 59);
 }
 .username.admin {
   color: rgb(183, 79, 224);
+}
+
+header {
+  margin: 10px 0 20px;
+  display: flex;
+  align-items: center;
+}
+header .texts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: rgb(159, 165, 181);
+  text-align: center;
+}
+header .texts h1 {
+  font-size: 3rem;
+}
+header .texts span#traveler {
+  color: rgb(47, 217, 251);
+}
+header .texts span#member {
+  color: rgb(251, 158, 59);
 }
 
 /*# sourceMappingURL=messages-page.css.map */

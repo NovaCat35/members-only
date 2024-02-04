@@ -77,3 +77,5 @@ Globe img: https://www.vecteezy.com/vector-art/13531093-world-map-connection-fut
 
 Bebop Crew: https://all-worlds-alliance.fandom.com/wiki/Category:Bebop_Crew
 Spike: https://www.pngaaa.com/detail/171396
+
+Portal Icons: https://theportalwiki.com/wiki/Category:Chamber_info_icons

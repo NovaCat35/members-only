@@ -10,11 +10,11 @@
 		<%- include('templates/navbar') %>
 		<div class="profile-container">
 			<header>
-				<h1 class="profile-name">Hello, <%= user.username %></h1>
+				<h1 class="profile-name">Hello, <span class="<%= user.member_status %>"><%= user.username %></span></h1>
 				<img id="profile-img" src="/images/cowboybebop.png" alt="" />
 			</header>
 			<div class="status-container">
-				<h2>Member Status:</h2>
+				<h2>Membership Status:</h2>
 				<p class="member-status <%= user.member_status %>"><%= user.member_status %></p>
 			</div>
 			<hr />
@@ -22,7 +22,7 @@
 				<h2>Personal Messages</h2>
 				<% if(userMessages.length == 0)  { %>
 					<div class="message-container alert">
-						You have NO history of personal messages. GO out there and say hello!
+						You have no history of personal messages. Go out there and say hello!
 					</div>
 				<% } %>
 				<% userMessages.forEach((message) => {%>

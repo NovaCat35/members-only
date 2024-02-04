@@ -8,18 +8,42 @@
 	</head>
 	<body>
 		<div class="navbar">
-			<div class="nav-left"><a class="home" href="/">HOME</a></div>
-			<div class="nav-right">
-				<% if(user.member_status == 'admin') { %>
-					<a class="admin-mode" href="/admin-access">Admin Access</a>
-				<% } %>
-				<a class="auth-status-btn" href="/auth-status">Status Access</a>
-				<a class="profile-btn" href="/profile">Profile</a>
-				<a class="logout-btn" href="/logout">Log out</a>
+			<div class="nav-left">
+				 <a href="/" class="nav-opt-container">
+					  <img id="home-icon" src="/images/cake.png" alt="home icon">
+					  <span class="home">HOME</span>
+				 </a>
 			</div>
-		</div>
+			<div class="nav-right">
+				 <% if(user.member_status == 'admin') { %>
+					  <a href="/admin-access" class="nav-opt-container">
+							<img id="admin-icon" src="/images/admin.svg" alt="admin-icon">
+							<span class="admin-mode">Admin Panel</span>
+					  </a>
+				 <% } %>
+				 <a href="/auth-status" class="nav-opt-container">
+					  <img id="member-icon" src="/images/star.svg" alt="membership-icon">
+					  <span class="auth-status-btn">Membership</span>
+				 </a>
+				 <a href="/profile" class="nav-opt-container">
+					  <img id="profile-icon" src="/images/profile.svg" alt="profile-icon">
+					  <span class="profile-btn">Profile</span>
+				 </a>
+				 <a href="/logout" class="nav-opt-container">
+					  <img id="logout-icon" src="/images/exit.png" alt="exit-icon">
+					  <span class="logout-btn">Log out</span>
+				 </a>
+			</div>
+	  </div>
+	  
 		<div class="main-message-page-container">
-			<h1>Messages</h1>
+			<header>
+				<div class="texts">
+					<h1>A <span id="member">MEMBERS ONLY</span> Clubhouse</h1>
+					<h2>All <span id="traveler">travelers</span> can leave a post.</h2>
+					<h2>But only <span id="member">members</span> can share the memory.</h2>
+				</div>
+			</header>
 			<% messages.forEach(msg => { %>
 			<div class="message-container">
 				<div class="message-info">

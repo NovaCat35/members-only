@@ -24,6 +24,7 @@ main header p {
   font-size: 1.2rem;
   text-align: center;
   margin-top: 10px;
+  color: rgb(192, 197, 209);
 }
 main .opts-container {
   display: flex;

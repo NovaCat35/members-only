@@ -1,59 +1,82 @@
+@mixin color-status {
+   &.traveler {
+      border-color: rgb(47, 217, 251);
+      color: rgb(47, 217, 251);
+   }
+   &.member {
+      border-color: rgb(251, 158, 59);
+      color: rgb(251, 158, 59);
+   }
+   &.admin {
+      border-color: rgb(183, 79, 224);
+      color: rgb(183, 79, 224);
+   }
+}
+
 .profile-container {
    display: flex;
    flex-direction: column;
    gap: 10px;
-   .message-container {
-      margin-top: 30px;
-      border: 3px double rgb(84, 81, 101);
-      border-radius: 10px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      .message-header {
-         display: flex;
-         .title {
-            font-size: 1.1rem;
-            color: rgb(135, 135, 233);
-         }
-         .date {
-            margin-left: auto;
-         }
-      }
-   }
    header {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 10px;
       margin-bottom: 10px;
+      .profile-name {
+         font-size: 3rem;
+      }
+      span{
+         @include color-status;
+      }
    }
    .status-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 10px;
+      color: rgb(159, 165, 181);
       .member-status {
          border: 2px solid rgb(238, 238, 238);
          border-radius: 15px;
          padding: 5px 10px;
          width: fit-content;
          margin-bottom: 10px;
-         &.traveler {
-            border-color: rgb(71, 210, 129);
-            color: rgb(71, 210, 129);
-         }
-         &.member {
-            border-color: rgb(251, 158, 59);
-            color: rgb(251, 158, 59);
-         }
-         &.admin {
-            border-color: rgb(183, 79, 224);
-            color: rgb(183, 79, 224);
+         @include color-status;
+      }
+   }
+   .profile-message-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h2{
+         margin-top: 10px;
+         color: rgb(159, 165, 181);
+         border: 2px solid rgb(159, 165, 181);
+         padding: 5px 10px;
+      }
+      .message-container {
+         margin-top: 20px;
+         border: 3px double rgb(84, 81, 101);
+         border-radius: 10px;
+         padding: 10px;
+         display: flex;
+         flex-direction: column;
+         gap: 10px;
+         width: 80%;
+         .message-header {
+            display: flex;
+            .title {
+               font-size: 1.1rem;
+               color: rgb(135, 135, 233);
+            }
+            .date {
+               margin-left: auto;
+               color: orange;
+            }
          }
       }
    }
-   
    #profile-img {
       width: 330px;
    }

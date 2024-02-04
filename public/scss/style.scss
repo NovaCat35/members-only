@@ -42,7 +42,7 @@ body {
 	padding: 40px 50px;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 	color: white;
-	background-color: rgb(52, 56, 69);
+	background-color: rgb(33, 37, 51);
 }
 
 a {
@@ -56,6 +56,9 @@ button {
 /**********************
 * * * NAVBAR
 ***********************/
+$filter-white: invert(100%) sepia(0%) saturate(7442%) hue-rotate(248deg) brightness(95%) contrast(108%);
+$filter-grey: invert(83%) sepia(17%) saturate(188%) hue-rotate(178deg) brightness(81%) contrast(89%);
+$filter-gold: invert(89%) sepia(21%) saturate(5926%) hue-rotate(353deg) brightness(103%) contrast(97%);
 .navbar {
 	display: flex;
 	margin-bottom: 20px;
@@ -64,13 +67,34 @@ button {
 		gap: 25px;
 		margin-left: auto;
 	}
-	a {
+	.nav-opt-container {
+		display: flex;
+		align-items: center;
+		gap: 5px;
 		padding: 10px 20px;
 		border-radius: 5px;
-		transition: all .4s ease-in-out;
+		transition: all 0.4s ease-in-out;
 		&:hover {
 			background-color: rgb(76, 87, 107);
 		}
+		img {
+			width: 25px;
+			filter: $filter-grey;
+			&#profile-icon {
+				width: 30px;
+			}
+			&#home-icon {
+				width: 40px;
+				margin-right: 5px;
+				filter: $filter-white;
+			}
+			&#member-icon {
+				filter: $filter-gold;
+			}
+		}
+	}
+	.logout-btn {
+		color: rgb(245, 11, 11);
 	}
 }
 

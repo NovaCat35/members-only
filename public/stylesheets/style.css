@@ -36,7 +36,7 @@ body {
   padding: 40px 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: white;
-  background-color: rgb(52, 56, 69);
+  background-color: rgb(33, 37, 51);
 }
 
 a {
@@ -59,13 +59,34 @@ button {
   gap: 25px;
   margin-left: auto;
 }
-.navbar a {
+.navbar .nav-opt-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   padding: 10px 20px;
   border-radius: 5px;
   transition: all 0.4s ease-in-out;
 }
-.navbar a:hover {
+.navbar .nav-opt-container:hover {
   background-color: rgb(76, 87, 107);
+}
+.navbar .nav-opt-container img {
+  width: 25px;
+  filter: invert(83%) sepia(17%) saturate(188%) hue-rotate(178deg) brightness(81%) contrast(89%);
+}
+.navbar .nav-opt-container img#profile-icon {
+  width: 30px;
+}
+.navbar .nav-opt-container img#home-icon {
+  width: 40px;
+  margin-right: 5px;
+  filter: invert(100%) sepia(0%) saturate(7442%) hue-rotate(248deg) brightness(95%) contrast(108%);
+}
+.navbar .nav-opt-container img#member-icon {
+  filter: invert(89%) sepia(21%) saturate(5926%) hue-rotate(353deg) brightness(103%) contrast(97%);
+}
+.navbar .logout-btn {
+  color: rgb(245, 11, 11);
 }
 
 /**********************

@@ -3,25 +3,6 @@
   flex-direction: column;
   gap: 10px;
 }
-.profile-container .message-container {
-  margin-top: 30px;
-  border: 3px double rgb(84, 81, 101);
-  border-radius: 10px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.profile-container .message-container .message-header {
-  display: flex;
-}
-.profile-container .message-container .message-header .title {
-  font-size: 1.1rem;
-  color: rgb(135, 135, 233);
-}
-.profile-container .message-container .message-header .date {
-  margin-left: auto;
-}
 .profile-container header {
   display: flex;
   flex-direction: column;
@@ -29,11 +10,27 @@
   gap: 10px;
   margin-bottom: 10px;
 }
+.profile-container header .profile-name {
+  font-size: 3rem;
+}
+.profile-container header span.traveler {
+  border-color: rgb(47, 217, 251);
+  color: rgb(47, 217, 251);
+}
+.profile-container header span.member {
+  border-color: rgb(251, 158, 59);
+  color: rgb(251, 158, 59);
+}
+.profile-container header span.admin {
+  border-color: rgb(183, 79, 224);
+  color: rgb(183, 79, 224);
+}
 .profile-container .status-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  color: rgb(159, 165, 181);
 }
 .profile-container .status-container .member-status {
   border: 2px solid rgb(238, 238, 238);
@@ -43,8 +40,8 @@
   margin-bottom: 10px;
 }
 .profile-container .status-container .member-status.traveler {
-  border-color: rgb(71, 210, 129);
-  color: rgb(71, 210, 129);
+  border-color: rgb(47, 217, 251);
+  color: rgb(47, 217, 251);
 }
 .profile-container .status-container .member-status.member {
   border-color: rgb(251, 158, 59);
@@ -53,6 +50,38 @@
 .profile-container .status-container .member-status.admin {
   border-color: rgb(183, 79, 224);
   color: rgb(183, 79, 224);
+}
+.profile-container .profile-message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-container .profile-message-container h2 {
+  margin-top: 10px;
+  color: rgb(159, 165, 181);
+  border: 2px solid rgb(159, 165, 181);
+  padding: 5px 10px;
+}
+.profile-container .profile-message-container .message-container {
+  margin-top: 20px;
+  border: 3px double rgb(84, 81, 101);
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+}
+.profile-container .profile-message-container .message-container .message-header {
+  display: flex;
+}
+.profile-container .profile-message-container .message-container .message-header .title {
+  font-size: 1.1rem;
+  color: rgb(135, 135, 233);
+}
+.profile-container .profile-message-container .message-container .message-header .date {
+  margin-left: auto;
+  color: orange;
 }
 .profile-container #profile-img {
   width: 330px;
