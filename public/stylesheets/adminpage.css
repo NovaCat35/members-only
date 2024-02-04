@@ -1,0 +1,31 @@
+.current-user-container {
+  border: 1px solid orange;
+  padding: 30px;
+  border-radius: 20px;
+}
+.current-user-container .user-info {
+  padding: 15px;
+  display: flex;
+  justify-content: flex-start;
+  border: 3px solid rgb(204, 69, 69);
+  border-top: none;
+  gap: 5px;
+}
+.current-user-container .user-info:first-of-type {
+  border-top: 3px solid rgb(204, 69, 69);
+}
+.current-user-container h1 {
+  font-size: 3.1rem;
+  margin-bottom: 20px;
+}
+.current-user-container .status.onlooker {
+  color: rgb(71, 210, 97);
+}
+.current-user-container .status.member {
+  color: rgb(22, 107, 157);
+}
+.current-user-container .status.admin {
+  color: rgb(195, 61, 195);
+}
+
+/*# sourceMappingURL=adminpage.css.map */

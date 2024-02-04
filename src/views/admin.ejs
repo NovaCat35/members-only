@@ -3,13 +3,18 @@
 	<head>
 		<title><%= title %></title>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<link rel="stylesheet" href="/stylesheets/adminpage.css" />
 		<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
 	</head>
 	<body>
+		<%- include('templates/navbar') %>
 		<div class="current-user-container">
-			<h2>Current Users</h2>
+			<h1>Current Users</h1>
 			<% users_list.forEach(user => { %>
-			<div><%= user.username %></div>
+			<div class="user-info">
+				<div class="username"><%= user.username %></div>
+				<div class="status <%= user.member_status %>">(<%= user.member_status %>)</div>
+			</div>
 			<% }) %>
 		</div>
 	</body>
