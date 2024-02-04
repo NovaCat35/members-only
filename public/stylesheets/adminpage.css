@@ -18,11 +18,11 @@
   font-size: 3.1rem;
   margin-bottom: 20px;
 }
-.current-user-container .status.onlooker {
+.current-user-container .status.traveler {
   color: rgb(71, 210, 97);
 }
 .current-user-container .status.member {
-  color: rgb(22, 107, 157);
+  color: rgb(59, 219, 251);
 }
 .current-user-container .status.admin {
   color: rgb(195, 61, 195);

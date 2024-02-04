@@ -24,7 +24,7 @@ Planning on finishing this within the next 3 days (styling and final testings)
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas): for cloud-based MongoDB hosting
 
 ## Challenges 🔥
-When trying to implement the sign-up and login functionality using bcrypt, I ran into a lot of errors with bcrypt missing variables issues. A lot of this was partially due to the changing around of my logic for modularity so the initial code had code faults in the logic since app.js contains the bulk of the passport initialization. I eventually fix this when I realize my logic order was the issue, so I ddi a double take and redid earlier code plans.
+When trying to implement the sign-up and login functionality using bcrypt, I ran into a lot of errors with bcrypt missing variables issues. A lot of this was partially due to the changing around of my logic for modularity so the initial code had code faults in the logic since app.js contains the bulk of the passport initialization. I eventually fix this when I realize my logic of where I was calling authentication and improper use of callbacks was the issue, so I did a double take and redid some earlier code logic.
 
 ## Installation Guide ⚙️
 ### Development
@@ -68,8 +68,12 @@ npm install express-rate-limit
 > Reminder to change env variables(within host provider) & set node version in our package.json & NODE_ENV = "production"
 
 
-## Resources and Sources ℹ️
+## Resources ℹ️
 TypeScript setup: https://blog.logrocket.com/how-to-set-up-node-typescript-express/#create-express-server-with-ts-extension
 
 
-Globe: https://www.vecteezy.com/vector-art/13531093-world-map-connection-futuristic-modern-website-background-or-cover-page-vector-for-technology-and-finance-concept-and-education-future-company
+## Sources 🖌️
+Globe img: https://www.vecteezy.com/vector-art/13531093-world-map-connection-futuristic-modern-website-background-or-cover-page-vector-for-technology-and-finance-concept-and-education-future-company
+
+Bebop Crew: https://all-worlds-alliance.fandom.com/wiki/Category:Bebop_Crew
+Spike: https://www.pngaaa.com/detail/171396

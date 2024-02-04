@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title><%= title %></title>
-      <link rel="stylesheet" href="/stylesheets/style.css" />
-      <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-   </head>   
+	<head>
+		<title><%= title %></title>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<link rel="stylesheet" href="/stylesheets/authpage.css" />
+		<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+	</head>
 	<body>
-      <%- include('templates/navbar') %>
-		<form action="/auth-status/member" method="post">
-			<h1>Become a member</h1>
-			<label for="member_password">Password</label>
-			<input id="member_password" name="member_password" type="password" required/>
-         <p class="<%= (typeof member_error !== 'undefined') ? 'error' : 'hidden error' %>">Invalid Credential</p>
-			<button type="submit">SUBMIT</button>
-		</form>
-		<form action="/auth-status/admin" method="post">
-			<h1>Become an admin</h1>
-			<label for="admin_password">Password</label>
-			<input id="admin_password" name="admin_password" type="password" required/>
-         <p class="<%= (typeof admin_error !== 'undefined') ? 'error' : 'hidden error' %>">Invalid Credential</p>
-			<button type="submit">SUBMIT</button>
-		</form>
+		<%- include('templates/navbar') %>
+		<main>
+			<form action="/auth-status/member" method="post">
+				<h1>Become a member</h1>
+				<img id="member-img" src="/images/bebop-ein.webp" alt="dog">
+				<div class="input-container">
+					<label for="member_password">Password</label>
+					<input id="member_password" name="member_password" type="password" required />
+				</div>
+				<p class="<%= (typeof member_error !== 'undefined') ? 'error' : 'hidden error' %>">Invalid Credential</p>
+				<button class="member-btn" type="submit">SUBMIT</button>
+			</form>
+			<form action="/auth-status/admin" method="post">
+				<h1>Become an admin</h1>
+				<img id="admin-img" src="/images/bebop-spike.png" alt="cowboy">
+				<div class="input-container">
+					<label for="admin_password">Password</label>
+					<input id="admin_password" name="admin_password" type="password" required />
+				</div>
+				<p class="<%= (typeof admin_error !== 'undefined') ? 'error' : 'hidden error' %>">Invalid Credential</p>
+				<button class="admin-btn" type="submit">SUBMIT</button>
+			</form>
+		</main>
 	</body>
 </html>

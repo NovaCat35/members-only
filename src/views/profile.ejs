@@ -9,15 +9,22 @@
 	<body>
 		<%- include('templates/navbar') %>
 		<div class="profile-container">
-			<h1 class="profile-name">Hello <%= user.username %></h1>
-			<img src="" alt="" />
+			<header>
+				<h1 class="profile-name">Hello, <%= user.username %></h1>
+				<img id="profile-img" src="/images/cowboybebop.png" alt="" />
+			</header>
 			<div class="status-container">
-				<p>Member Status:</p>
-				<p><%= user.member_status %></p>
+				<h2>Member Status:</h2>
+				<p class="member-status <%= user.member_status %>"><%= user.member_status %></p>
 			</div>
-
+			<hr />
 			<div class="profile-message-container">
 				<h2>Personal Messages</h2>
+				<% if(userMessages.length == 0)  { %>
+					<div class="message-container alert">
+						You have NO history of personal messages. GO out there and say hello!
+					</div>
+				<% } %>
 				<% userMessages.forEach((message) => {%>
 				<div class="message-container">
 					<div class="message-header">

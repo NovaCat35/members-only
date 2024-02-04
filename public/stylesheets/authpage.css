@@ -1,3 +1,57 @@
-
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+}
+@media screen and (min-width: 800px) {
+  main {
+    flex-direction: row;
+  }
+}
+main form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border: 3px solid white;
+  padding: 20px;
+}
+main form h1 {
+  font-size: 2.3rem;
+  text-shadow: 1px 1px 15px rgb(24, 29, 114);
+}
+main form button {
+  font-size: 1.1rem;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  width: fit-content;
+  color: white;
+}
+main form button.admin-btn {
+  background-color: rgb(93, 0, 255);
+}
+main form button.member-btn {
+  background-color: rgb(0, 179, 255);
+}
+main form .input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 80%;
+}
+main form .input-container label {
+  font-weight: 700;
+}
+main form .input-container input {
+  padding: 5px;
+}
+main form img#member-img {
+  width: 150px;
+}
+main form img#admin-img {
+  width: 330px;
+}
 
 /*# sourceMappingURL=authpage.css.map */

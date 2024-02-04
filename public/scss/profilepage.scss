@@ -1,15 +1,64 @@
-.message-container {
-   margin-top: 30px;
-   border: 1px solid black;
-   border-radius: 10px;
-   padding: 10px;
-   .message-header{
+.profile-container {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   .message-container {
+      margin-top: 30px;
+      border: 3px double rgb(84, 81, 101);
+      border-radius: 10px;
+      padding: 10px;
       display: flex;
-      .title{
-         font-size: 1.1rem;
+      flex-direction: column;
+      gap: 10px;
+      .message-header {
+         display: flex;
+         .title {
+            font-size: 1.1rem;
+            color: rgb(135, 135, 233);
+         }
+         .date {
+            margin-left: auto;
+         }
       }
-      .date{
-         margin-left: auto;
+   }
+   header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+   }
+   .status-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      .member-status {
+         border: 2px solid rgb(238, 238, 238);
+         border-radius: 15px;
+         padding: 5px 10px;
+         width: fit-content;
+         margin-bottom: 10px;
+         &.traveler {
+            border-color: rgb(71, 210, 129);
+            color: rgb(71, 210, 129);
+         }
+         &.member {
+            border-color: rgb(251, 158, 59);
+            color: rgb(251, 158, 59);
+         }
+         &.admin {
+            border-color: rgb(183, 79, 224);
+            color: rgb(183, 79, 224);
+         }
       }
+   }
+   
+   #profile-img {
+      width: 330px;
+   }
+   .alert{
+      text-align: center;
+      color: red;
    }
 }

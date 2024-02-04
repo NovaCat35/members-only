@@ -41,6 +41,7 @@
 }
 .main-message-page-container .message-container .message-texts .date {
   margin-left: auto;
+  color: orange;
 }
 
 .message-form-container {
@@ -121,14 +122,14 @@
 .username {
   font-size: 1.02rem;
 }
-.username.onlooker {
-  color: rgb(71, 210, 97);
+.username.traveler {
+  color: rgb(59, 219, 251);
 }
 .username.member {
-  color: rgb(22, 107, 157);
+  color: rgb(251, 158, 59);
 }
 .username.admin {
-  color: rgb(195, 61, 195);
+  color: rgb(183, 79, 224);
 }
 
 /*# sourceMappingURL=messages-page.css.map */

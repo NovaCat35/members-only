@@ -38,6 +38,7 @@
 			}
 			.date {
 				margin-left: auto;
+				color: orange;
 			}
 		}
 	}
@@ -121,13 +122,13 @@ $msg-background-color: rgb(29, 33, 44);
 
 .username {
 	font-size: 1.02rem;
-	&.onlooker {
-		color: rgb(71, 210, 97);
+	&.traveler {
+		color: rgb(59, 219, 251);
 	}
 	&.member {
-		color: rgb(22, 107, 157);
+		color: rgb(251, 158, 59);
 	}
 	&.admin {
-		color: rgb(195, 61, 195);
+		color: rgb(183, 79, 224);
 	}
 }
