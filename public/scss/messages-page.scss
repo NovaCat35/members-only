@@ -39,21 +39,30 @@ header{
 		display: grid;
 		grid-template-columns: 120px 1fr;
 		padding: 10px;
-		height: 150px;
+		height: 145px;
 		width: 60vw;
 		.message-info {
+			position: relative;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			margin-right: 10px;
-			overflow: auto;
+			overflow: hidden;
+			.name-container{
+				overflow: auto;
+				text-align: center;
+			}
+			img.default{
+				margin-top: 10px;
+				width: 40px;
+			}
 		}
 		.message-texts {
 			border-left: 1px solid black;
 			display: flex;
 			flex-direction: column;
 			gap: 11px;
-			padding: 0 20px;
+			padding: 0 10px 0 20px;
 			height: 100%;
 			overflow: hidden;
 			.texts-area {
@@ -61,6 +70,7 @@ header{
 				overflow: auto;
 			}
 			.title {
+				margin-top: 4px;
 				font-weight: 700;
 				font-size: 1.05rem;
 			}
@@ -131,7 +141,7 @@ $msg-background-color: rgb(29, 33, 44);
 
 .delete-btn-container {
 	position: absolute;
-	bottom: 10px;
+	bottom: 0px;
 	.delete-btn {
 		text-align: center;
 		background-color: rgb(183, 28, 28);
@@ -150,6 +160,7 @@ $msg-background-color: rgb(29, 33, 44);
 }
 
 .username {
+	margin-top: 4px;
 	font-size: 1.02rem;
 	font-family: 'Special Elite', Helvetica, Arial, sans-serif;;
 	&.traveler {
@@ -159,7 +170,7 @@ $msg-background-color: rgb(29, 33, 44);
 		color: rgb(251, 158, 59);
 	}
 	&.admin {
-		color: rgb(183, 79, 224);
+		color: rgb(197, 86, 240);
 	}
 }
 

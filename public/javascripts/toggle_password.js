@@ -6,24 +6,28 @@ const eyeIcon2 = document.querySelector(".eye-icon2");
 const passwordInput = document.getElementById("password");
 const passwordInput2 = document.getElementById("password2");
 
-eyeIcon.addEventListener("click", () => {
-	// Unhide password and display close-eye icon
-	if (passwordInput.type === "password") {
-		passwordInput.type = "text";
-		eyeIcon.src = "/images/eye-off.svg";
-	} else {
-		passwordInput.type = "password";
-		eyeIcon.src = "/images/eye.svg";
-	}
-});
+if (passwordInput) {
+    eyeIcon.addEventListener("click", () => {
+        // Unhide password and display close-eye icon
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyeIcon.src = "/images/eye-off.svg";
+        } else {
+            passwordInput.type = "password";
+            eyeIcon.src = "/images/eye.svg";
+        }
+    });
+}
 
-eyeIcon2.addEventListener("click", () => {
-	// Unhide password and display close-eye icon
-	if (passwordInput2.type === "password") {
-		passwordInput2.type = "text";
-		eyeIcon2.src = "/images/eye-off.svg";
-	} else {
-		passwordInput2.type = "password";
-		eyeIcon2.src = "/images/eye.svg";
-	}
-});
+if (passwordInput2) {
+    eyeIcon2.addEventListener("click", () => {
+        // Unhide password and display close-eye icon
+        if (passwordInput2.type === "password") {
+            passwordInput2.type = "text";
+            eyeIcon2.src = "/images/eye-off.svg";
+        } else {
+            passwordInput2.type = "password";
+            eyeIcon2.src = "/images/eye.svg";
+        }
+    });
+}

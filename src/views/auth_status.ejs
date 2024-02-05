@@ -35,8 +35,7 @@
 			<form action="/auth-status/admin" method="post">
 				<h1>Become an admin</h1>
 				<img id="admin-img" src="/images/bebop-spike.png" alt="cowboy" />
-				<% if (user.member_status == 'traveler') { %>
-
+				<% if (user.member_status !== 'admin') { %>
 				<div class="input-container">
 					<label for="password2">Password</label>
 					<div class="password-container">

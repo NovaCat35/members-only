@@ -47,7 +47,10 @@
 			<% messages.forEach(msg => { %>
 			<div class="message-container">
 				<div class="message-info">
-						<p class="username <%= msg.user.member_status %>"><%= msg.user.username %></p>
+						<div class="name-container">
+							<p class="username <%= msg.user.member_status %>"><%= msg.user.username %></p>
+						</div>
+						<img class="default pfp" src="/images/profile-images/portal-pfp.png" alt="pfp">
 						<% if(user.member_status == 'admin') { %>
 							<div class="delete-btn-container">
 								<div class="delete-btn"><a href="/delete/<%= msg._id %>">DELETE</a></div>
