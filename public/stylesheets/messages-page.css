@@ -52,6 +52,7 @@ header .texts span#member {
   overflow: hidden;
 }
 .main-message-page-container .message-container .message-info .name-container {
+  height: 25px;
   overflow: auto;
   text-align: center;
 }
