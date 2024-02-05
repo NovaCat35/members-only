@@ -1,3 +1,5 @@
+@import "./fonts.scss";
+
 // Reset box model and margin/padding
 *,
 *::before,
@@ -31,11 +33,20 @@ h6 {
 // Remove default anchor styling
 a {
 	text-decoration: none;
-	color: inherit;
+	color: #00b7ff;
 }
 
 input {
 	outline: none;
+}
+
+img{
+	user-drag: none;
+	-webkit-user-drag: none;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 }
 
 /**********************
@@ -46,11 +57,7 @@ body {
 	padding: 40px 50px;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 	color: white;
-	background-color: rgb(33, 37, 51);
-}
-
-a {
-	color: #00b7ff;
+	background-color: rgb(20, 24, 38);
 }
 
 button {
@@ -63,6 +70,7 @@ button {
 $filter-white: invert(100%) sepia(0%) saturate(7442%) hue-rotate(248deg) brightness(95%) contrast(108%);
 $filter-grey: invert(83%) sepia(17%) saturate(188%) hue-rotate(178deg) brightness(81%) contrast(89%);
 $filter-gold: invert(89%) sepia(21%) saturate(5926%) hue-rotate(353deg) brightness(103%) contrast(97%);
+$filter-red: invert(51%) sepia(48%) saturate(6954%) hue-rotate(336deg) brightness(105%) contrast(92%);
 .navbar {
 	display: flex;
 	margin-bottom: 20px;
@@ -93,13 +101,10 @@ $filter-gold: invert(89%) sepia(21%) saturate(5926%) hue-rotate(353deg) brightne
 				margin-right: 5px;
 				filter: $filter-white;
 			}
-			&#member-icon {
-				filter: $filter-gold;
-			}
 		}
 	}
 	.logout-btn {
-		color: rgb(245, 11, 11);
+		color: #00b7ff;
 	}
 }
 

@@ -83,8 +83,17 @@
   margin-left: auto;
   color: orange;
 }
-.profile-container #profile-img {
-  width: 330px;
+.profile-container .profile-img-container {
+  height: 138px;
+  width: 275px;
+  border-radius: 150px 150px 0 0;
+  overflow: hidden;
+}
+.profile-container .profile-img-container #profile-img {
+  position: relative;
+  top: -6px;
+  left: -13px;
+  width: 304px;
 }
 .profile-container .alert {
   text-align: center;

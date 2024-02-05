@@ -77,8 +77,17 @@
          }
       }
    }
-   #profile-img {
-      width: 330px;
+   .profile-img-container{
+      height: 138px;
+      width: 275px;
+      border-radius: 150px 150px 0 0;
+      overflow: hidden;
+      #profile-img {
+         position: relative;
+         top: -6px;
+         left: -13px;
+         width: 304px;
+      }
    }
    .alert{
       text-align: center;

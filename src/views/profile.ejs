@@ -4,14 +4,16 @@
 		<title><%= title %></title>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 		<link rel="stylesheet" href="/stylesheets/profilepage.css" />
-		<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+		<link rel="icon" type="image/x-icon" href="/images/myfavicon.ico" />
 	</head>
 	<body>
 		<%- include('templates/navbar') %>
 		<div class="profile-container">
 			<header>
 				<h1 class="profile-name">Hello, <span class="<%= user.member_status %>"><%= user.username %></span></h1>
-				<img id="profile-img" src="/images/cowboybebop.png" alt="" />
+				<div class="profile-img-container">
+					<img id="profile-img" src="/images/cowboybebop.png" alt="" />
+				</div>
 			</header>
 			<div class="status-container">
 				<h2>Membership Status:</h2>

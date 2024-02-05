@@ -1,9 +1,11 @@
 import { Document, Schema, model } from 'mongoose';
+import { DateTime } from "luxon";
 
 interface IUser {
     username: string;
     password: string;
     member_status: string;
+    date_joined: Date;
 }
 
 export interface IUserDocument extends IUser, Document {
@@ -15,10 +17,11 @@ const UserSchema = new Schema({
     username: { type: String, required: true },
     password: { type: String, required: true },
     member_status: { type: String, required: true },
+    date_joined: { type: Date, default: Date.now, required: true },
 });
 
-UserSchema.virtual('url').get(function (this: IUserDocument) {
-    return `${this._id}`;
+UserSchema.virtual("format_date").get(function (this: IUserDocument) {
+	return DateTime.fromJSDate(this.date_joined).toLocaleString(DateTime.DATETIME_MED);
 });
 
 module.exports = model("User", UserSchema);

@@ -18,6 +18,10 @@ main form {
 main form h1 {
   font-size: 2.3rem;
   text-shadow: 1px 1px 15px rgb(24, 29, 114);
+  font-family: "Earth Aircraft", Helvetica, Arial, sans-serif;
+}
+main form p {
+  text-align: center;
 }
 main form button {
   font-size: 1.1rem;

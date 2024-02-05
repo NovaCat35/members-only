@@ -57,7 +57,8 @@ exports.signup_post = [
 			let user = new User({
 				username: req.body.username,
 				password: hashedPassword,
-				member_status: "onlooker",
+				member_status: "traveler",
+				date_joined: new Date(),
 			});
 			await user.save();
 

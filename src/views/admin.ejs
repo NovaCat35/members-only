@@ -4,7 +4,7 @@
 		<title><%= title %></title>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 		<link rel="stylesheet" href="/stylesheets/adminpage.css" />
-		<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+		<link rel="icon" type="image/x-icon" href="/images/myfavicon.ico" />
 	</head>
 	<body>
 		<%- include('templates/navbar') %>
@@ -14,6 +14,7 @@
 			<div class="user-info">
 				<div class="username"><%= user.username %></div>
 				<div class="status <%= user.member_status %>">(<%= user.member_status %>)</div>
+				<div class="date-joined"><%= user.date_joined %></div>
 			</div>
 			<% }) %>
 		</div>
