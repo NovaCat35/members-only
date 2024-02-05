@@ -1,5 +1,5 @@
 # MEMBERS ONLY
-Welcome to this corner of the secret web! This site is an exclusive clubhouse where veiled within are anonymous musings, obscured data, and cryptic authors. Sound interesting? Then start by joining our elusive clubhouse today! 
+Welcome, traveler! This is an exclusive clubhouse for travelers & members from all over to leave their mark on this corner of the universe. Sound interesting? Then start by joining our elusive clubhouse today! 
 
 ⚠️ This project is currently a WORK IN PROGRESS 😎
 
@@ -79,3 +79,7 @@ Bebop Crew: https://all-worlds-alliance.fandom.com/wiki/Category:Bebop_Crew
 Spike: https://www.pngaaa.com/detail/171396
 
 Portal Icons: https://theportalwiki.com/wiki/Category:Chamber_info_icons
+
+Stars background: https://codepen.io/sarazond/pen/LYGbwj
+
+satellite: https://www.rawpixel.com/image/11721881/png-white-background-galaxy

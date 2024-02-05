@@ -8,6 +8,7 @@ main {
 	align-items: center;
 	gap: 30px;
 	header {
+		z-index: 5;
 		margin-top: 50px;
 		h1 {
 			font-size: 3rem;
@@ -24,7 +25,10 @@ main {
 			font-size: 1.2rem;
 			text-align: center;
 			margin-top: 10px;
-			color: rgb(192, 197, 209);
+			background: -webkit-linear-gradient(white, #8199b3);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+
 		}
 	}
 	.opts-container {
@@ -74,25 +78,34 @@ main {
 	position: absolute;
 	right: 50px;
 	bottom: 100px;
-	width: 80px;
-	z-index: -50;
+	width: 150px;
+	z-index: -5;
 	animation: floating 5s infinite ease-in-out;
 	-webkit-animation: floating 10s infinite ease-in-out;
 }
-
+#radio {
+	cursor: pointer;
+	position: absolute;
+	left: 80px;
+	bottom: 240px;
+	width: 230px;
+	z-index: -5;
+	animation: floating2 5s infinite ease-in-out;
+	-webkit-animation: floating2 10s infinite ease-in-out;
+}
 #earth {
 	position: absolute;
 	left: -50px;
-	bottom: -60px;
-	width: 300px;
-	height: 300px;
-	z-index: -55;
-	background: url("../images/earth.jpg");
+	bottom: -460px;
+	width: 700px;
+	height: 700px;
+	z-index: -10;
+	background: url("../images/earth-blue.webp");
 	border-radius: 50%;
-	background-size: 610px;
+	background-size: 1000px;
 	box-shadow: inset 8px 36px 80px 36px rgb(0, 0, 0), inset -6px 0 12px 4px rgba(255, 255, 255, 0.3), 0 0 60px 20px #fff, /* inner white */ 0 0 100px 40px #0ff, /* middle magenta */ 0 0 140px 60px rgb(98, 0, 255); /* outer cyan */
-	animation: rotate 30s infinite linear;
-	-webkit-animation: rotate 30s infinite linear;
+	animation: rotate 75s infinite linear;
+	-webkit-animation: rotate 75s infinite linear;
 	transform: rotate(20deg);
 }
 
@@ -101,7 +114,7 @@ main {
 		background-position: 0px 0px;
 	}
 	to {
-		background-position: 610px 0px;
+		background-position: 1000px 0px;
 	}
 }
 @-webkit-keyframes rotate {
@@ -109,7 +122,7 @@ main {
 		background-position: 0px 0px;
 	}
 	to {
-		background-position: 610px 0px;
+		background-position: 1000px 0px;
 	}
 }
 
@@ -129,4 +142,111 @@ main {
 	100% {
 		transform: translate(0, 0px) rotate(20deg); /* Back to initial position */
 	}
+}
+
+@keyframes floating2 {
+	0% {
+		transform: translate(0, 0px) rotate(-5deg); /* Initial position */
+	}
+	50% {
+		transform: translate(0, -35px) rotate(15deg); /* Tilt left bit */
+	}
+	100% {
+		transform: translate(0, -0px) rotate(-5deg); /* Back to initial position */
+	}
+}
+
+/*******************/
+/*****  STARS
+/*******************/
+
+// n is number of stars required
+@function multiple-box-shadow($n) {
+  $value: '#{random(2000)}px #{random(2000)}px #FFF';
+  @for $i from 2 through $n {
+    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
+  }
+  @return unquote($value);
+}
+
+$shadows-small: multiple-box-shadow(500);
+$shadows-medium: multiple-box-shadow(200);
+$shadows-big: multiple-box-shadow(100);
+
+body {
+	overflow: hidden;
+}
+.galaxy-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  overflow: hidden;
+  pointer-events: none; // hide clicking the body so we can interact with other stuff
+  z-index: -100;
+}
+
+#stars {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: $shadows-small;
+  animation: animStar 50s linear infinite;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: $shadows-small;
+  }
+}
+
+#stars2 {
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: $shadows-medium;
+  animation: animStar 100s linear infinite;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: $shadows-medium;
+  }
+}
+
+#stars3 {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: $shadows-big;
+  animation: animStar 150s linear infinite;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: $shadows-big;
+  }
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
 }
