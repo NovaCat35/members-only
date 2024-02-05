@@ -29,6 +29,10 @@ a {
   color: inherit;
 }
 
+input {
+  outline: none;
+}
+
 /**********************
 * * * BASIC SETUP
 ***********************/
@@ -53,6 +57,7 @@ button {
 .navbar {
   display: flex;
   margin-bottom: 20px;
+  font-weight: 700;
 }
 .navbar .nav-right {
   display: flex;

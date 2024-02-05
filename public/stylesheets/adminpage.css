@@ -19,13 +19,13 @@
   margin-bottom: 20px;
 }
 .current-user-container .status.traveler {
-  color: rgb(71, 210, 97);
+  color: rgb(47, 197, 251);
 }
 .current-user-container .status.member {
-  color: rgb(59, 219, 251);
+  color: rgb(251, 158, 59);
 }
 .current-user-container .status.admin {
-  color: rgb(195, 61, 195);
+  color: rgb(183, 79, 224);
 }
 
 /*# sourceMappingURL=adminpage.css.map */

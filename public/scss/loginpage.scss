@@ -2,4 +2,29 @@
 
 button {
    background-color: rgb(55, 129, 172);
+   display: block;
+   overflow: hidden;
+   position: relative;
+   transition: 1s all ease;
+   // this is so the text stays above the hover animation
+   p {
+      position: relative;
+      z-index: 10;
+   }
+   &::before {
+		background: rgb(0, 99, 156);
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 1;
+		transition: all 0.6s ease;
+		width: 100%;
+		height: 0%;
+		transform: translate(-50%, -50%) rotate(-65deg);
+	}
+	&:hover::before {
+		height: 680%;
+	}
 }

@@ -34,6 +34,10 @@ a {
 	color: inherit;
 }
 
+input {
+	outline: none;
+}
+
 /**********************
 * * * BASIC SETUP
 ***********************/
@@ -62,6 +66,7 @@ $filter-gold: invert(89%) sepia(21%) saturate(5926%) hue-rotate(353deg) brightne
 .navbar {
 	display: flex;
 	margin-bottom: 20px;
+	font-weight: 700;
 	.nav-right {
 		display: flex;
 		gap: 25px;

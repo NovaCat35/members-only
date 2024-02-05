@@ -16,8 +16,9 @@
 					<label for="member_password">Password</label>
 					<input id="member_password" name="member_password" type="password" required />
 				</div>
+				<p><span class="hint">HINT:</span> A jazz rhythm and a spaceship's name. <br> Think sci-fi jazz fusion.</p>
 				<p class="<%= (typeof member_error !== 'undefined') ? 'error' : 'hidden error' %>">Invalid Credential</p>
-				<button class="member-btn" type="submit">SUBMIT</button>
+				<button class="member-btn" type="submit"><p>SUBMIT</p></button>
 			</form>
 			<form action="/auth-status/admin" method="post">
 				<h1>Become an admin</h1>
@@ -26,8 +27,9 @@
 					<label for="admin_password">Password</label>
 					<input id="admin_password" name="admin_password" type="password" required />
 				</div>
+				<p><span class="hint">NO HINTS:</span> Well whatever happens, happens...</p>
 				<p class="<%= (typeof admin_error !== 'undefined') ? 'error' : 'hidden error' %>">Invalid Credential</p>
-				<button class="admin-btn" type="submit">SUBMIT</button>
+				<button class="admin-btn" type="submit"><p>SUBMIT</p></button>
 			</form>
 		</main>
 	</body>

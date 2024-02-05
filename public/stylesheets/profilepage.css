@@ -14,8 +14,8 @@
   font-size: 3rem;
 }
 .profile-container header span.traveler {
-  border-color: rgb(47, 217, 251);
-  color: rgb(47, 217, 251);
+  border-color: rgb(47, 197, 251);
+  color: rgb(47, 197, 251);
 }
 .profile-container header span.member {
   border-color: rgb(251, 158, 59);
@@ -40,8 +40,8 @@
   margin-bottom: 10px;
 }
 .profile-container .status-container .member-status.traveler {
-  border-color: rgb(47, 217, 251);
-  color: rgb(47, 217, 251);
+  border-color: rgb(47, 197, 251);
+  color: rgb(47, 197, 251);
 }
 .profile-container .status-container .member-status.member {
   border-color: rgb(251, 158, 59);

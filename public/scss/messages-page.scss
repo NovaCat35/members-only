@@ -123,7 +123,7 @@ $msg-background-color: rgb(29, 33, 44);
 .username {
 	font-size: 1.02rem;
 	&.traveler {
-		color: rgb(47, 217, 251);
+		color: rgb(47, 197, 251);
 	}
 	&.member {
 		color: rgb(251, 158, 59);
@@ -134,7 +134,7 @@ $msg-background-color: rgb(29, 33, 44);
 }
 
 header{
-	margin: 10px 0 20px;
+	margin: 20px 0 25px;
 	display: flex;
 	align-items: center;
 	.texts{
@@ -145,13 +145,20 @@ header{
 		color: rgb(159, 165, 181);
 		text-align: center;
 		h1 {
-			font-size: 3rem;
+			font-size: 3.3rem;
+			color: white;
 		}
 		span#traveler{
-			color: rgb(47, 217, 251);
+			color: rgb(47, 197, 251);
 		}
 		span#member{
 			color: rgb(251, 158, 59);
 		}
+	}
+}
+
+a {
+	span:not(.home){
+		color: rgb(159, 165, 181);
 	}
 }
