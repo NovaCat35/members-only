@@ -1,9 +1,7 @@
 # MEMBERS ONLY
 Welcome, traveler! This is an exclusive clubhouse for travelers & members from all over to leave their mark on this corner of the universe. Sound interesting? Then start by joining our elusive clubhouse today! 
 
-⚠️ This project is currently a WORK IN PROGRESS 😎
-
-Planning on finishing this within the next 3 days (styling and final testings)
+Live link:  😎
 
 ## Features 🎯
 - Ability to add messages & replies 
@@ -22,6 +20,7 @@ Planning on finishing this within the next 3 days (styling and final testings)
 
 ## Hosting Platforms 🌐
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas): for cloud-based MongoDB hosting
+- [fly.io](https://fly.io): for deploying and hosting the application
 
 ## Challenges 🔥
 When trying to implement the sign-up and login functionality using bcrypt, I ran into a lot of errors with bcrypt missing variables issues. A lot of this was partially due to the changing around of my logic for modularity so the initial code had code faults in the logic since app.js contains the bulk of the passport initialization. I eventually fix this when I realize my logic of where I was calling authentication and improper use of callbacks was the issue, so I did a double take and redid some earlier code logic.
@@ -71,15 +70,12 @@ npm install express-rate-limit
 ## Resources ℹ️
 TypeScript setup: https://blog.logrocket.com/how-to-set-up-node-typescript-express/#create-express-server-with-ts-extension
 
+Creating stars background: https://codepen.io/sarazond/pen/LYGbwj
 
-## Sources 🖌️
-Globe img: https://www.vecteezy.com/vector-art/13531093-world-map-connection-futuristic-modern-website-background-or-cover-page-vector-for-technology-and-finance-concept-and-education-future-company
-
+## Sources (that I remember to credit...) 🖌️
 Bebop Crew: https://all-worlds-alliance.fandom.com/wiki/Category:Bebop_Crew
-Spike: https://www.pngaaa.com/detail/171396
+
+Spike Img: https://www.pngaaa.com/detail/171396
 
 Portal Icons: https://theportalwiki.com/wiki/Category:Chamber_info_icons
 
-Stars background: https://codepen.io/sarazond/pen/LYGbwj
-
-satellite: https://www.rawpixel.com/image/11721881/png-white-background-galaxy

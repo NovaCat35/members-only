@@ -5,6 +5,7 @@ interface IUser {
     username: string;
     password: string;
     member_status: string;
+    profile_pic: Number,
     date_joined: Date;
 }
 
@@ -17,6 +18,7 @@ const UserSchema = new Schema({
     username: { type: String, required: true },
     password: { type: String, required: true },
     member_status: { type: String, required: true },
+    profile_pic: {type: Number, default: 0, required: true},
     date_joined: { type: Date, default: Date.now, required: true },
 });
 

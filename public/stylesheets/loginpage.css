@@ -22,7 +22,7 @@ form .form-opt .password-container {
   position: relative;
 }
 form .form-opt .password-container input#password,
-form .form-opt .password-container input#password-confirm {
+form .form-opt .password-container input#password2 {
   width: 100%;
 }
 form .form-opt .password-container img.eye-icon,

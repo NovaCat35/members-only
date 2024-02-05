@@ -42,9 +42,11 @@ exports.profile_get = asyncHandler(async (req: any, res: Response, next: NextFun
 	});
 });
 
-exports.status_page_get = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+exports.status_page_get = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
+	const user = await User.findById(req.user._id).exec();
 	res.render("auth_status", {
 		title: "Status Page",
+		user: user,
 	});
 });
 

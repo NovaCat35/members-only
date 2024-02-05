@@ -4,7 +4,7 @@
 const eyeIcon = document.querySelector(".eye-icon");
 const eyeIcon2 = document.querySelector(".eye-icon2");
 const passwordInput = document.getElementById("password");
-const passwordInput2 = document.getElementById("password-confirm");
+const passwordInput2 = document.getElementById("password2");
 
 eyeIcon.addEventListener("click", () => {
 	// Unhide password and display close-eye icon

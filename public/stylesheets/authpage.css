@@ -1,4 +1,5 @@
 main {
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,7 +21,7 @@ main form h1 {
   text-shadow: 1px 1px 15px rgb(24, 29, 114);
   font-family: "Earth Aircraft", Helvetica, Arial, sans-serif;
 }
-main form p {
+main form p, main form h3 {
   text-align: center;
 }
 main form button {
@@ -88,6 +89,19 @@ main form .input-container label {
 }
 main form .input-container input {
   padding: 5px;
+  width: 100%;
+}
+main form .input-container .password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+main form .input-container .password-container img.eye-icon,
+main form .input-container .password-container img.eye-icon2 {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  width: 25px;
 }
 main form img#member-img {
   width: 150px;
@@ -98,6 +112,12 @@ main form img#admin-img {
 main form span.hint {
   color: rgb(250, 86, 26);
   font-weight: 700;
+}
+main form .member-msg {
+  color: rgb(251, 158, 59);
+}
+main form .admin-msg {
+  color: rgb(183, 79, 224);
 }
 @media screen and (min-width: 800px) {
   main {

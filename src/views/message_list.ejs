@@ -68,7 +68,7 @@
 		<div class="message-form-container">
 			<form action="/message-post" method="post">
 				<input type="text" name="title" id="title" placeholder="What's on your mind?" minlength="2" required/>
-				<input type="text" name="message" id="message" placeholder="Prescribe some details, doc!" required />
+				<input type="text" name="message" id="message" placeholder="Prescribe some details, <%= user.username %>!" required />
 				<button>Send</button>
 			</form>
 		</div>

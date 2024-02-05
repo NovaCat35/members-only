@@ -58,6 +58,7 @@ exports.signup_post = [
 				username: req.body.username,
 				password: hashedPassword,
 				member_status: "traveler",
+				profile_pic: Math.floor(Math.random() * 11),
 				date_joined: new Date(),
 			});
 			await user.save();
@@ -125,10 +126,13 @@ exports.status_member_post = [
 		const errors = validationResult(req);
 		const secretPassword = process.env.SECRET_MEMBER_PASS;
 		const userInput = req.body.member_password.toLowerCase();
+		const user = await User.findById(req.user._id).exec();
+
 		if (!errors.isEmpty() || (secretPassword && userInput !== secretPassword)) {
 			// user did not enter correct password for access status, return to form page
 			res.render("auth_status", {
 				title: "Status Page",
+				user: user,
 				member_error: true,
 				errors: errors.array(),
 			});
@@ -147,11 +151,13 @@ exports.status_admin_post = [
 		const errors = validationResult(req);
 		const secretPassword = process.env.SECRET_ADMIN_PASS;
 		const userInput = req.body.admin_password.toLowerCase();
+		const user = await User.findById(req.user._id).exec();
 
 		if (!errors.isEmpty() || (secretPassword && userInput !== secretPassword)) {
 			// user did not enter correct password for access status, return to form page
 			res.render("auth_status", {
 				title: "Status Page",
+				user: user,
 				admin_error: true,
 				errors: errors.array(),
 			});
