@@ -7,7 +7,6 @@ const sassMiddleware = require("node-sass-middleware");
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-// const { bcrypt } = require("./src/config/bcrypt");
 const bcrypt = require("bcryptjs");
 const User = require("./src/models/user");
 
@@ -15,11 +14,21 @@ const User = require("./src/models/user");
 var indexRouter = require("./src/routes/index");
 var usersRouter = require("./src/routes/users");
 
+// Check if dev or production in order to use .env file
 if (process.env.NODE_ENV !== "production") {
 	require("dotenv").config();
 }
 
 var app = express();
+
+// Set up rate limiter: maximum of ? requests per minute
+const RateLimit = require("express-rate-limit");
+const limiter = RateLimit({
+	windowMs: 1 * 60 * 1000, // 1 minute
+	max: 1000,
+});
+// Apply rate limiter to all requests
+app.use(limiter);
 
 // Connect to Mongoose
 const mongoose = require("mongoose");
@@ -84,6 +93,16 @@ app.use(
 		outputStyle: "compressed",
 	})
 );
+// Add helmet for production security
+app.use(
+	helmet.contentSecurityPolicy({
+		directives: {
+			"script-src": ["'self'"],
+			"img-src": ["'self'", "*.cloudinary.com"],
+		},
+	})
+);
+app.use(compression()); // Compress all routes
 
 app.use(logger("dev"));
 app.use(express.json());
