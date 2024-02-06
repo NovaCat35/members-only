@@ -4,15 +4,19 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const sassMiddleware = require("node-sass-middleware");
+
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
-const User = require("./src/models/user");
 
-// Routes
-var indexRouter = require("./src/routes/index");
-var usersRouter = require("./src/routes/users");
+const User = require("./dist/models/user"); 
+const compression = require("compression");
+const helmet = require("helmet");
+
+// Routes 
+var indexRouter = require("./dist/routes/index");
+var usersRouter = require("./dist/routes/users");
 
 // Check if dev or production in order to use .env file
 if (process.env.NODE_ENV !== "production") {
@@ -94,14 +98,11 @@ app.use(
 	})
 );
 // Add helmet for production security
-app.use(
-	helmet.contentSecurityPolicy({
-		directives: {
-			"script-src": ["'self'"],
-			"img-src": ["'self'", "*.cloudinary.com"],
-		},
-	})
-);
+app.use(helmet.contentSecurityPolicy({
+	directives: {
+	  "script-src": ["'self'"],
+	},
+ }));
 app.use(compression()); // Compress all routes
 
 app.use(logger("dev"));
