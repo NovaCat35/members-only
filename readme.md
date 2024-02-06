@@ -1,16 +1,22 @@
-# Bebop Paradise [A MEMBERS ONLY App]
-Welcome, inter-galactic travelers! This is an exclusive clubhouse for people from all over the known universe to leave their mark on this corner of the universe. Sound interesting? Then start by joining our elusive clubhouse today! 
+# Bebop Paradise
+Welcome, intergalactic travelers! This is an exclusive clubhouse for people from all over the known universe to leave their mark on this corner of the universe. As a member of this MEMBERS ONLY app, you can see additional details regular travelers can't see. Sound interesting? Then start by joining our elusive clubhouse today! 
 
-Live link: https://bebop-paradise.fly.dev/ 
+Live link: https://bebop-paradise.fly.dev/ 🛰️
+
+<img width="977" alt="Screenshot 2024-02-06 at 1 50 47 PM" src="https://github.com/NovaCat35/members-only/assets/54908064/7882ac7d-ee1f-4c7e-926d-68f5683abc80">
 
 ## Features 🎯
-- Ability to add messages & replies 
+- Ability to add messages 
 - Authentication & security configuration
 - Session continuity
 - Users with different abilities and permissions : 
-   - Admin: ability to delete posts & see all available users
-   - Member: see hidden details, post author, and post date 
+   - Admin: ability to delete posts & see all available user status
+   - Member: see hidden details
    - All users: ability to see profile status and post messages
+
+- Future updates?
+ - Replies
+ - PFP
 
 ## Technologies Used 🚀
 - **Backend:** Node.js, Express.js, TypeScript
@@ -59,7 +65,7 @@ npm install --save-dev ts-node nodemon
 
 > 1) Adjust tsconfig.json: uncomment "outDir", "allowJs", and change "outDir": "./dist" 
 
-> 2) Run tsc (npx tsc) to transpile your TypeScript files to JavaScript. From step 1, we will output this in "./dist"
+> 2) Run tsc (npx tsc/npm run build) to transpile your TypeScript files to JavaScript. From step 1, we will output this in "./dist"
 
 ### Production
 > Type in terminal the following : 
@@ -84,6 +90,8 @@ Bebop Crew: https://all-worlds-alliance.fandom.com/wiki/Category:Bebop_Crew
 Spike Img: https://www.pngaaa.com/detail/171396
 
 Portal Icons: https://theportalwiki.com/wiki/Category:Chamber_info_icons
+
+Radio sound: https://www.youtube.com/watch?v=bj2FvGcXRKs
 
 Honorable mentions: to all image src that I forgot to note down, truly sorry. Google images just took me places.
 
