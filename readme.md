@@ -1,7 +1,7 @@
 # Bebop Paradise
 Welcome, intergalactic travelers! This is an exclusive clubhouse for people from all over the known universe to leave their mark on this corner of the universe. As a member of this MEMBERS ONLY app, you can see additional details regular travelers can't see. Sound interesting? Then start by joining our elusive clubhouse today! 
 
-Live link: https://bebop-paradise.fly.dev/ 🛰️
+Live link: https://bebop-paradise.fly.dev/ 🛰️ (Progress: Testing stage)
 
 <img width="977" alt="Screenshot 2024-02-06 at 1 50 47 PM" src="https://github.com/NovaCat35/members-only/assets/54908064/7882ac7d-ee1f-4c7e-926d-68f5683abc80">
 

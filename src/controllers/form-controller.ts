@@ -189,7 +189,7 @@ exports.message_post = [
 
 			message.title = replaceEncodedCharacters(message.title);
 			message.message = replaceEncodedCharacters(message.message);
-
+			console.log(message.title);
 			await message.save();
 			res.redirect(`/`);
 		}
@@ -204,5 +204,13 @@ function replaceEncodedCharacters(input: String) {
 	// Replace "&#x27;" with single quote "'"
 	input = input.replace(/&#x27;/g, "'");
 
+	// Replace "&quot;" with single quote '"'
+	input = input.replace(/&quot;/g, '"');
+
+	// Replace "&#96;" with backtick character '`'
+	input = input.replace(/&#96;/g, "`");
+
+	console.log("what the heck...");
+	alert(input)
 	return input;
 }

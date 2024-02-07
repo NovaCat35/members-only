@@ -1,104 +1,117 @@
 @mixin color-status {
-   &.traveler {
-      border-color: rgb(47, 197, 251);
-      color: rgb(47, 197, 251);
-   }
-   &.member {
-      border-color: rgb(251, 158, 59);
-      color: rgb(251, 158, 59);
-   }
-   &.admin {
-      border-color: rgb(197, 86, 240);
-      color: rgb(197, 86, 240);
-   }
+	&.traveler {
+		border-color: rgb(47, 197, 251);
+		color: rgb(47, 197, 251);
+	}
+	&.member {
+		border-color: rgb(251, 158, 59);
+		color: rgb(251, 158, 59);
+	}
+	&.admin {
+		border-color: rgb(197, 86, 240);
+		color: rgb(197, 86, 240);
+	}
 }
 
 .profile-container {
-   display: flex;
-   flex-direction: column;
-   gap: 10px;
-   header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-      .profile-name {
-         font-size: 3rem;
-         span{
-            font-size: 2.5rem;
-            @include color-status;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+		margin-bottom: 10px;
+		.profile-name {
+			font-size: 3rem;
+			span {
+				font-size: 2.5rem;
+				@include color-status;
+			}
+		}
+	}
+	.status-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+		color: rgb(159, 165, 181);
+		.member-status {
+			border: 2px solid rgb(238, 238, 238);
+			border-radius: 15px;
+			padding: 5px 10px;
+			width: fit-content;
+			margin-bottom: 10px;
+			@include color-status;
+		}
+	}
+	.profile-message-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		h2 {
+			margin-top: 10px;
+			color: rgb(159, 165, 181);
+			border: 2px solid rgb(159, 165, 181);
+			padding: 5px 10px;
+		}
+		.message-container {
+			margin-top: 20px;
+			border: 3px double rgb(84, 81, 101);
+			border-radius: 10px;
+			padding: 10px;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			width: 80%;
+			.message-header {
+				display: flex;
+				.title {
+					font-size: 1.1rem;
+					color: rgb(135, 135, 233);
+				}
+				.date {
+					margin-left: auto;
+					color: orange;
+				}
+			}
+         .message-info {
+            color: rgb(238, 238, 238);
          }
-      }
-   }
-   .status-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      color: rgb(159, 165, 181);
-      .member-status {
-         border: 2px solid rgb(238, 238, 238);
-         border-radius: 15px;
-         padding: 5px 10px;
-         width: fit-content;
-         margin-bottom: 10px;
-         @include color-status;
-      }
-   }
-   .profile-message-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      h2{
-         margin-top: 10px;
-         color: rgb(159, 165, 181);
-         border: 2px solid rgb(159, 165, 181);
-         padding: 5px 10px;
-      }
-      .message-container {
-         margin-top: 20px;
-         border: 3px double rgb(84, 81, 101);
-         border-radius: 10px;
-         padding: 10px;
-         display: flex;
-         flex-direction: column;
-         gap: 10px;
-         width: 80%;
-         .message-header {
-            display: flex;
-            .title {
-               font-size: 1.1rem;
-               color: rgb(135, 135, 233);
-            }
-            .date {
-               margin-left: auto;
-               color: orange;
-            }
-         }
-      }
-   }
-   .profile-img-container{
-      height: 119px;
-      width: 241px;
-      border-radius: 150px 150px 0 0;
-      overflow: hidden;
-      #profile-img {
-         position: relative;
-         top: -6px;
-         left: -13px;
-         width: 316px;
-         @media screen and (min-width: 550px) {
-            width: 304px;
-         }
-      }
-      @media screen and (min-width: 550px) {
-         height: 138px;
-         width: 275px;
-      }
-   }
-   .alert{
-      text-align: center;
-      color: red;
-   }
+		}
+	}
+	.profile-img-container {
+		height: 119px;
+		width: 241px;
+		border-radius: 150px 150px 0 0;
+		overflow: hidden;
+		#profile-img {
+			position: relative;
+			top: -6px;
+			left: -13px;
+			width: 316px;
+			@media screen and (min-width: 550px) {
+				width: 304px;
+			}
+		}
+		@media screen and (min-width: 550px) {
+			height: 138px;
+			width: 275px;
+		}
+	}
+	.alert {
+		text-align: center;
+		color: red;
+	}
+}
+
+.footer {
+	margin-top: 20px;
+	color: rgb(208, 208, 208);
+	font-size: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
 }

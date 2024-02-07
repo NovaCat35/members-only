@@ -98,13 +98,16 @@
 		<div class="message-form-container">
 			<form action="/message-post" method="post">
 				<input type="text" name="title" id="title" placeholder="What's on your mind?" minlength="2" required />
-				<input type="text" name="message" id="message" placeholder="Prescribe some details, <%= user.username %>!" required />
+				<textarea name="message" id="message" maxLength="200" placeholder="Prescribe some details, <%= user.username %>!" required></textarea>
 				<button>Send</button>
 			</form>
 		</div>
 
 		<!-- Below is hidden. Only used for js to grab info (hide_details.js) -->
 		<div class="membership" style="display: none"><%= user.member_status %></div>
+		<div class="pagination-navigation">
+			<a class="github-link" href="https://github.com/NovaCat35/members-only" target="blank"><img id="github-icon" src="/images/github.svg" alt="github icon"/></a>
+		</div>
 	</body>
 	<script src="/javascripts/hide_details.js"></script>
 	<script src="/javascripts/hamburger.js"></script>

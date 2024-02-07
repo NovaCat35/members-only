@@ -1,6 +1,5 @@
 // Keeps date and author details hidden from non-members
 let messageStatus = document.querySelector('.membership').textContent;
-console.log(messageStatus)
 let usernames = document.querySelectorAll(".username");
 let dates = document.querySelectorAll(".date");
 

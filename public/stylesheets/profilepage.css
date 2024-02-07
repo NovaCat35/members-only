@@ -86,6 +86,9 @@
   margin-left: auto;
   color: orange;
 }
+.profile-container .profile-message-container .message-container .message-info {
+  color: rgb(238, 238, 238);
+}
 .profile-container .profile-img-container {
   height: 119px;
   width: 241px;
@@ -112,6 +115,16 @@
 .profile-container .alert {
   text-align: center;
   color: red;
+}
+
+.footer {
+  margin-top: 20px;
+  color: rgb(208, 208, 208);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 /*# sourceMappingURL=profilepage.css.map */

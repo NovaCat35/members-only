@@ -51,7 +51,7 @@ exports.status_page_get = asyncHandler(async (req: any, res: Response, next: Nex
 });
 
 exports.admin_get = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
-	const users = await User.find().exec();
+	const users = await User.find().sort({date_joined: -1}).exec();
 	res.render("admin", {
 		title: "Admin Page",
 		users_list: users,
