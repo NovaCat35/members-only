@@ -13,15 +13,18 @@
 .profile-container header .profile-name {
   font-size: 3rem;
 }
-.profile-container header span.traveler {
+.profile-container header .profile-name span {
+  font-size: 2.5rem;
+}
+.profile-container header .profile-name span.traveler {
   border-color: rgb(47, 197, 251);
   color: rgb(47, 197, 251);
 }
-.profile-container header span.member {
+.profile-container header .profile-name span.member {
   border-color: rgb(251, 158, 59);
   color: rgb(251, 158, 59);
 }
-.profile-container header span.admin {
+.profile-container header .profile-name span.admin {
   border-color: rgb(197, 86, 240);
   color: rgb(197, 86, 240);
 }
@@ -84,8 +87,8 @@
   color: orange;
 }
 .profile-container .profile-img-container {
-  height: 138px;
-  width: 275px;
+  height: 119px;
+  width: 241px;
   border-radius: 150px 150px 0 0;
   overflow: hidden;
 }
@@ -93,7 +96,18 @@
   position: relative;
   top: -6px;
   left: -13px;
-  width: 304px;
+  width: 316px;
+}
+@media screen and (min-width: 550px) {
+  .profile-container .profile-img-container #profile-img {
+    width: 304px;
+  }
+}
+@media screen and (min-width: 550px) {
+  .profile-container .profile-img-container {
+    height: 138px;
+    width: 275px;
+  }
 }
 .profile-container .alert {
   text-align: center;

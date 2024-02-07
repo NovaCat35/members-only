@@ -95,6 +95,12 @@ $filter-red: invert(51%) sepia(48%) saturate(6954%) hue-rotate(336deg) brightnes
 				margin-left: 0px;
 			}
 		}
+		&.nav-right{
+			margin-right: -20px;
+			@media screen and (min-width: 550px) {
+				margin-right: 0px;
+			}
+		}
 		&:hover {
 			background-color: rgb(76, 87, 107);
 		}

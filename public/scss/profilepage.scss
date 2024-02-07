@@ -25,9 +25,10 @@
       margin-bottom: 10px;
       .profile-name {
          font-size: 3rem;
-      }
-      span{
-         @include color-status;
+         span{
+            font-size: 2.5rem;
+            @include color-status;
+         }
       }
    }
    .status-container {
@@ -78,15 +79,22 @@
       }
    }
    .profile-img-container{
-      height: 138px;
-      width: 275px;
+      height: 119px;
+      width: 241px;
       border-radius: 150px 150px 0 0;
       overflow: hidden;
       #profile-img {
          position: relative;
          top: -6px;
          left: -13px;
-         width: 304px;
+         width: 316px;
+         @media screen and (min-width: 550px) {
+            width: 304px;
+         }
+      }
+      @media screen and (min-width: 550px) {
+         height: 138px;
+         width: 275px;
       }
    }
    .alert{

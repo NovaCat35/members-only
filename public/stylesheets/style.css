@@ -98,6 +98,14 @@ button {
     margin-left: 0px;
   }
 }
+.navbar .nav-opt-container.nav-right {
+  margin-right: -20px;
+}
+@media screen and (min-width: 550px) {
+  .navbar .nav-opt-container.nav-right {
+    margin-right: 0px;
+  }
+}
 .navbar .nav-opt-container:hover {
   background-color: rgb(76, 87, 107);
 }
