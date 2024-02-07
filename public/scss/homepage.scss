@@ -69,8 +69,8 @@ main {
 			border: 3px solid rgba(4, 149, 245, 0);
 			background: linear-gradient(rgb(33, 37, 51), rgb(33, 37, 51)) padding-box, linear-gradient(to left, rgb(4, 149, 245), rgb(213, 241, 241)) border-box;
 			border-radius: 5px;
-			padding: 5px 20px;
-			font-size: 1.5rem;
+			padding: 5px 25px;
+			font-size: 1.55rem;
 			position: relative;
 			display: block;
 			overflow: hidden;
@@ -139,7 +139,7 @@ main {
 	#cube {
 		position: absolute;
 		right: 35px;
-		bottom: 70px;
+		bottom: 85px;
 		width: 125px;
 		z-index: -5;
 		animation: floating 10s infinite ease-in-out;
@@ -154,7 +154,7 @@ main {
 		cursor: pointer;
 		position: absolute;
 		left: -15px;
-		bottom: 160px;
+		bottom: 170px;
 		width: 210px;
 		z-index: 1;
 		animation: floating2 15s infinite ease-in-out;
@@ -223,7 +223,7 @@ main {
 
 @keyframes floating2 {
 	0% {
-		transform: translate(0, 0px) rotate(-5deg); /* Initial position */
+		transform: translate(0, 0px) rotate(-10deg); /* Initial position */
 	}
 	50% {
 		transform: translate(0, -35px) rotate(15deg); /* Tilt left bit */
@@ -232,7 +232,7 @@ main {
 		transform: translate(0, 10px) rotate(-15deg); /* Back to initial position */
 	}
 	100% {
-		transform: translate(0, -0px) rotate(-5deg); /* Back to initial position */
+		transform: translate(0, -0px) rotate(-10deg); /* Back to initial position */
 	}
 }
 

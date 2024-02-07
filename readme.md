@@ -47,10 +47,10 @@ npm install express-session
 npm install mongoose
 npm install express-async-handler
 npm install express-validator
-npm install node-sass-middleware <not sure if I need this anymore>
+npm install node-sass-middleware <might not need this anymore bc of script in package.json>
 npm install express sass
 npm install bcryptjs
-npm install luxon (use TYPESCRIPT: npm install --save @types/luxon)
+npm install luxon (IF TYPESCRIPT: npm install --save @types/luxon)
 ```
 
 > Reminder to check app.js for all added changes 

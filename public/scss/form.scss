@@ -6,13 +6,13 @@ form {
 	.form-opt {
 		display: flex;
 		flex-direction: column;
-		width: 70vw;
+		width: 75vw;
 		gap: 5px;
 		label {
 			align-self: start;
 		}
 		input {
-			padding: 10px 5px;
+			padding: 12px 5px;
 			border-radius: 10px;
 			border: 2px solid rgb(101, 101, 101);
 		}
@@ -32,15 +32,21 @@ form {
 				width: 25px;
 			}
 		}
+		@media screen and (min-width: 550px) {
+			width: 70vw;
+		}
 	}
 	button {
 		margin-top: 30px;
 		align-self: center;
-		width: 330px;
-		padding: 15px 20px;
+		padding: 11px 53px;
 		font-size: 1.3rem;
 		border-radius: 10px;
 		border: none;
 		color: white;
+		@media screen and (min-width: 550px) {
+			width: 330px;
+			padding: 15px 20px;
+		}
 	}
 }
