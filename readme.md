@@ -14,10 +14,6 @@ Live link: https://bebop-paradise.fly.dev/ 🛰️
    - Member: see hidden details
    - All users: ability to see profile status and post messages
 
-- Future updates?
- - Replies
- - PFP
-
 ## Technologies Used 🚀
 - **Backend:** Node.js, Express.js, TypeScript
 - **Stylesheet Language:** SCSS

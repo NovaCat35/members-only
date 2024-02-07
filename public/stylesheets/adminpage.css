@@ -6,17 +6,26 @@
 .current-user-container .user-info {
   padding: 15px;
   display: flex;
-  justify-content: flex-start;
-  border: 3px solid rgb(204, 69, 69);
+  flex-direction: column;
+  border: 3px solid rgb(204, 71, 69);
   border-top: none;
   gap: 5px;
 }
 .current-user-container .user-info:first-of-type {
-  border-top: 3px solid rgb(204, 69, 69);
+  border-top: 3px solid rgb(204, 71, 69);
+}
+.current-user-container .user-info .main-info {
+  display: flex;
+  gap: 5px;
 }
 .current-user-container h1 {
-  font-size: 3.1rem;
+  font-size: 2rem;
   margin-bottom: 20px;
+}
+@media screen and (min-width: 550px) {
+  .current-user-container h1 {
+    font-size: 3.1rem;
+  }
 }
 .current-user-container .status.traveler {
   color: rgb(47, 197, 251);

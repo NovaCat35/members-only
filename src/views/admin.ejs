@@ -14,8 +14,10 @@
 			<h1>Current Users</h1>
 			<% users_list.forEach(user => { %>
 			<div class="user-info">
-				<div class="username"><%= user.username %></div>
-				<div class="status <%= user.member_status %>">(<%= user.member_status %>)</div>
+				<div class="main-info">
+					<div class="username"><%= user.username %></div>
+					<div class="status <%= user.member_status %>">(<%= user.member_status %>)</div>
+				</div>
 				<div class="date-joined"><%= user.date_joined %></div>
 			</div>
 			<% }) %>

@@ -1,8 +1,15 @@
-header{
-	margin: 20px 0 25px;
+body.message_list {
+	padding: 40px 30px;
+	@media screen and (min-width: 550px) {
+		padding: 40px 50px;
+	}
+}
+
+header {
+	margin: 0px 0 25px;
 	display: flex;
 	align-items: center;
-	.texts{
+	.texts {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -10,19 +17,31 @@ header{
 		color: rgb(159, 165, 181);
 		text-align: center;
 		h1 {
-			font-size: 3.3rem;
+			font-size: 2.5rem;
 			font-family: "Protest Guerrilla", Helvetica, Arial, sans-serif;
 			color: white;
+			@media screen and (min-width: 550px) {
+				font-size: 3.3rem;
+			}
+		}
+		h2 {
+			font-size: 1.1rem;
+			@media screen and (min-width: 550px) {
+				font-size: 1.5rem;
+			}
 		}
 		span.member {
-			color:rgb(245, 79, 64); 
+			color: rgb(245, 79, 64);
 		}
-		span#traveler{
+		span#traveler {
 			color: rgb(69, 175, 241);
 		}
-		span#member{
+		span#member {
 			color: rgb(251, 158, 59);
 		}
+	}
+	@media screen and (min-width: 550px) {
+		margin: 20px 0 25px;
 	}
 }
 
@@ -39,8 +58,8 @@ header{
 		display: grid;
 		grid-template-columns: 120px 1fr;
 		padding: 10px;
-		height: 145px;
-		width: 60vw;
+		height: 170px;
+		width: 80vw;
 		.message-info {
 			position: relative;
 			display: flex;
@@ -48,14 +67,17 @@ header{
 			align-items: center;
 			margin-right: 10px;
 			overflow: hidden;
-			.name-container{
+			.name-container {
 				height: 25px;
 				overflow: auto;
 				text-align: center;
 			}
-			img.default{
-				margin-top: 10px;
+			img.pfp {
+				margin-top: 26px;
 				width: 40px;
+				@media screen and (min-width: 550px) {
+					margin-top: 10px;
+				}
 			}
 		}
 		.message-texts {
@@ -69,17 +91,34 @@ header{
 			.texts-area {
 				height: 100%;
 				overflow: auto;
+				.text {
+					color: rgb(216, 216, 216);
+					font-size: 0.7rem;
+					@media screen and (min-width: 550px) {
+						font-size: 0.88rem;
+					}
+				}
 			}
 			.title {
-				margin-top: 4px;
 				font-weight: 700;
-				font-size: 1.05rem;
+				font-size: 0.8rem;
+				@media screen and (min-width: 550px) {
+					font-size: 1.02rem;
+				}
 			}
 			.date {
+				font-size: 0.7rem;
 				margin-left: auto;
 				color: orange;
-				font-family: 'Special Elite', Helvetica, Arial, sans-serif;;
+				font-family: "Special Elite", Helvetica, Arial, sans-serif;
+				@media screen and (min-width: 550px) {
+					font-size: 0.88rem;
+				}
 			}
+		}
+		@media screen and (min-width: 550px) {
+			width: 60vw;
+			height: 145px;
 		}
 	}
 }
@@ -154,7 +193,7 @@ $msg-background-color: rgb(29, 33, 44);
 			background-color: rgb(231, 33, 33);
 		}
 		a {
-			font-size: .8rem;
+			font-size: 0.8rem;
 			color: white;
 		}
 	}
@@ -163,7 +202,7 @@ $msg-background-color: rgb(29, 33, 44);
 .username {
 	margin-top: 4px;
 	font-size: 1.02rem;
-	font-family: 'Special Elite', Helvetica, Arial, sans-serif;;
+	font-family: "Special Elite", Helvetica, Arial, sans-serif;
 	&.traveler {
 		color: rgb(47, 197, 251);
 	}
@@ -176,7 +215,73 @@ $msg-background-color: rgb(29, 33, 44);
 }
 
 a {
-	span:not(.home){
+	span:not(.home) {
 		color: rgb(159, 165, 181);
+	}
+}
+
+
+/**********************
+* * * NAVBAR + Hamburger
+***********************/
+.navbar {
+	.nav-right {
+		display: none;
+		@media screen and (min-width: 1000px) {
+			display: flex;
+		}
+	}
+	.nav-right-mobile{
+		position: absolute;
+		padding: 15px;
+		padding-top: 40px;
+		top: 43px;
+		right: 25px;
+		display: none;
+		flex-direction: column;
+		justify-content: center;
+		gap: 5px;
+		height: 0;
+		overflow: hidden;
+		border: 1px solid rgba(255, 255, 255, 0);
+		background-color: rgb(20, 24, 38);
+		transition: all .3s ease-in-out;
+		&.active{
+			display: flex;
+			height: auto;
+			border: 1px solid white;
+		}
+		@media screen and (min-width: 1000px) {
+			display: none;
+		}
+	}
+}
+
+.hamburger {
+	margin-left: auto;
+	display: block;
+	cursor: pointer;
+	z-index: 10;
+	.bar {
+		display: block;
+		background-color: white;
+		width: 30px;
+		height: 3px;
+		margin: 5px;
+		transition: all 0.4s ease-in-out;
+	}
+	&.active {
+		.bar:nth-child(1) {
+			transform: translateY(8px) rotate(45deg);
+		}
+		.bar:nth-child(2) {
+			opacity: 0;
+		}
+		.bar:nth-child(3) {
+			transform: translateY(-8px) rotate(-45deg);
+		}
+	}
+	@media screen and (min-width: 1000px) {
+		display: none;
 	}
 }

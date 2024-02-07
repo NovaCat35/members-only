@@ -73,6 +73,7 @@ $filter-gold: invert(89%) sepia(21%) saturate(5926%) hue-rotate(353deg) brightne
 $filter-red: invert(51%) sepia(48%) saturate(6954%) hue-rotate(336deg) brightness(105%) contrast(92%);
 .navbar {
 	display: flex;
+	align-items: center;
 	margin-bottom: 20px;
 	font-weight: 700;
 	.nav-right {
@@ -80,6 +81,7 @@ $filter-red: invert(51%) sepia(48%) saturate(6954%) hue-rotate(336deg) brightnes
 		gap: 25px;
 		margin-left: auto;
 	}
+
 	.nav-opt-container {
 		display: flex;
 		align-items: center;
@@ -87,7 +89,12 @@ $filter-red: invert(51%) sepia(48%) saturate(6954%) hue-rotate(336deg) brightnes
 		padding: 10px 20px;
 		border-radius: 5px;
 		transition: all 0.4s ease-in-out;
-		margin-left: -20px;
+		&.nav-left{
+			margin-left: -20px;
+			@media screen and (min-width: 550px) {
+				margin-left: 0px;
+			}
+		}
 		&:hover {
 			background-color: rgb(76, 87, 107);
 		}
@@ -102,9 +109,6 @@ $filter-red: invert(51%) sepia(48%) saturate(6954%) hue-rotate(336deg) brightnes
 				margin-right: 5px;
 				filter: $filter-white;
 			}
-		}
-		@media screen and (min-width: 550px) {
-			margin-left: 0px;
 		}
 	}
 	.logout-btn {

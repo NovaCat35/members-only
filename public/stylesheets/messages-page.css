@@ -1,5 +1,14 @@
+body.message_list {
+  padding: 40px 30px;
+}
+@media screen and (min-width: 550px) {
+  body.message_list {
+    padding: 40px 50px;
+  }
+}
+
 header {
-  margin: 20px 0 25px;
+  margin: 0px 0 25px;
   display: flex;
   align-items: center;
 }
@@ -12,9 +21,22 @@ header .texts {
   text-align: center;
 }
 header .texts h1 {
-  font-size: 3.3rem;
+  font-size: 2.5rem;
   font-family: "Protest Guerrilla", Helvetica, Arial, sans-serif;
   color: white;
+}
+@media screen and (min-width: 550px) {
+  header .texts h1 {
+    font-size: 3.3rem;
+  }
+}
+header .texts h2 {
+  font-size: 1.1rem;
+}
+@media screen and (min-width: 550px) {
+  header .texts h2 {
+    font-size: 1.5rem;
+  }
 }
 header .texts span.member {
   color: rgb(245, 79, 64);
@@ -24,6 +46,11 @@ header .texts span#traveler {
 }
 header .texts span#member {
   color: rgb(251, 158, 59);
+}
+@media screen and (min-width: 550px) {
+  header {
+    margin: 20px 0 25px;
+  }
 }
 
 .main-message-page-container {
@@ -40,8 +67,8 @@ header .texts span#member {
   display: grid;
   grid-template-columns: 120px 1fr;
   padding: 10px;
-  height: 145px;
-  width: 60vw;
+  height: 170px;
+  width: 80vw;
 }
 .main-message-page-container .message-container .message-info {
   position: relative;
@@ -56,9 +83,14 @@ header .texts span#member {
   overflow: auto;
   text-align: center;
 }
-.main-message-page-container .message-container .message-info img.default {
-  margin-top: 10px;
+.main-message-page-container .message-container .message-info img.pfp {
+  margin-top: 26px;
   width: 40px;
+}
+@media screen and (min-width: 550px) {
+  .main-message-page-container .message-container .message-info img.pfp {
+    margin-top: 10px;
+  }
 }
 .main-message-page-container .message-container .message-texts {
   border-left: 1px solid black;
@@ -73,15 +105,40 @@ header .texts span#member {
   height: 100%;
   overflow: auto;
 }
+.main-message-page-container .message-container .message-texts .texts-area .text {
+  color: rgb(216, 216, 216);
+  font-size: 0.7rem;
+}
+@media screen and (min-width: 550px) {
+  .main-message-page-container .message-container .message-texts .texts-area .text {
+    font-size: 0.88rem;
+  }
+}
 .main-message-page-container .message-container .message-texts .title {
-  margin-top: 4px;
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 0.8rem;
+}
+@media screen and (min-width: 550px) {
+  .main-message-page-container .message-container .message-texts .title {
+    font-size: 1.02rem;
+  }
 }
 .main-message-page-container .message-container .message-texts .date {
+  font-size: 0.7rem;
   margin-left: auto;
   color: orange;
   font-family: "Special Elite", Helvetica, Arial, sans-serif;
+}
+@media screen and (min-width: 550px) {
+  .main-message-page-container .message-container .message-texts .date {
+    font-size: 0.88rem;
+  }
+}
+@media screen and (min-width: 550px) {
+  .main-message-page-container .message-container {
+    width: 60vw;
+    height: 145px;
+  }
 }
 
 .message-form-container {
@@ -176,6 +233,73 @@ header .texts span#member {
 
 a span:not(.home) {
   color: rgb(159, 165, 181);
+}
+
+/**********************
+* * * NAVBAR + Hamburger
+***********************/
+.navbar .nav-right {
+  display: none;
+}
+@media screen and (min-width: 1000px) {
+  .navbar .nav-right {
+    display: flex;
+  }
+}
+.navbar .nav-right-mobile {
+  position: absolute;
+  padding: 15px;
+  padding-top: 40px;
+  top: 43px;
+  right: 25px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  height: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0);
+  background-color: rgb(20, 24, 38);
+  transition: all 0.3s ease-in-out;
+}
+.navbar .nav-right-mobile.active {
+  display: flex;
+  height: auto;
+  border: 1px solid white;
+}
+@media screen and (min-width: 1000px) {
+  .navbar .nav-right-mobile {
+    display: none;
+  }
+}
+
+.hamburger {
+  margin-left: auto;
+  display: block;
+  cursor: pointer;
+  z-index: 10;
+}
+.hamburger .bar {
+  display: block;
+  background-color: white;
+  width: 30px;
+  height: 3px;
+  margin: 5px;
+  transition: all 0.4s ease-in-out;
+}
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+@media screen and (min-width: 1000px) {
+  .hamburger {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=messages-page.css.map */

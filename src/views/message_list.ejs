@@ -8,36 +8,61 @@
 		<link rel="stylesheet" href="/stylesheets/messages-page.css" />
 		<link rel="icon" type="image/x-icon" href="/images/myfavicon.ico" />
 	</head>
-	<body>
+	<body class="message_list">
 		<div class="navbar">
 			<div class="nav-left">
-				 <a href="/" class="nav-opt-container">
-					  <img id="home-icon" src="/images/cake.png" alt="home icon">
-					  <span class="home">HOME</span>
-				 </a>
+				<a href="/" class="nav-opt-container">
+					<img id="home-icon" src="/images/cake.png" alt="home icon" />
+					<span class="home">HOME</span>
+				</a>
+			</div>
+			<div class="hamburger">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
 			</div>
 			<div class="nav-right">
-				 <% if(user.member_status == 'admin') { %>
-					  <a href="/admin-access" class="nav-opt-container">
-							<img id="admin-icon" src="/images/admin.svg" alt="admin-icon">
-							<span class="admin-mode">ADMIN PANEL</span>
-					  </a>
-				 <% } %>
-				 <a href="/auth-status" class="nav-opt-container">
-					  <img id="member-icon" src="/images/star.svg" alt="membership-icon">
-					  <span class="auth-status-btn">MEMBERSHIP</span>
-				 </a>
-				 <a href="/profile" class="nav-opt-container">
-					  <img id="profile-icon" src="/images/profile.svg" alt="profile-icon">
-					  <span class="profile-btn">PROFILE</span>
-				 </a>
-				 <a href="/logout" class="nav-opt-container">
-					  <img id="logout-icon" src="/images/exit.png" alt="exit-icon">
-					  <span class="logout-btn">LOG OUT</span>
-				 </a>
+				<% if(user.member_status == 'admin') { %>
+				<a href="/admin-access" class="nav-opt-container">
+					<img id="admin-icon" src="/images/admin.svg" alt="admin-icon" />
+					<span class="admin-mode">ADMIN PANEL</span>
+				</a>
+				<% } %>
+				<a href="/auth-status" class="nav-opt-container">
+					<img id="member-icon" src="/images/star.svg" alt="membership-icon" />
+					<span class="auth-status-btn">MEMBERSHIP</span>
+				</a>
+				<a href="/profile" class="nav-opt-container">
+					<img id="profile-icon" src="/images/profile.svg" alt="profile-icon" />
+					<span class="profile-btn">PROFILE</span>
+				</a>
+				<a href="/logout" class="nav-opt-container">
+					<img id="logout-icon" src="/images/exit.png" alt="exit-icon" />
+					<span class="logout-btn">LOG OUT</span>
+				</a>
 			</div>
-	  </div>
-	  
+			<div class="nav-right-mobile">
+				<% if(user.member_status == 'admin') { %>
+				<a href="/admin-access" class="nav-opt-container">
+					<img id="admin-icon" src="/images/admin.svg" alt="admin-icon" />
+					<span class="admin-mode">ADMIN PANEL</span>
+				</a>
+				<% } %>
+				<a href="/auth-status" class="nav-opt-container">
+					<img id="member-icon" src="/images/star.svg" alt="membership-icon" />
+					<span class="auth-status-btn">MEMBERSHIP</span>
+				</a>
+				<a href="/profile" class="nav-opt-container">
+					<img id="profile-icon" src="/images/profile.svg" alt="profile-icon" />
+					<span class="profile-btn">PROFILE</span>
+				</a>
+				<a href="/logout" class="nav-opt-container">
+					<img id="logout-icon" src="/images/exit.png" alt="exit-icon" />
+					<span class="logout-btn">LOG OUT</span>
+				</a>
+			</div>
+		</div>
+
 		<div class="main-message-page-container">
 			<header>
 				<div class="texts">
@@ -49,20 +74,20 @@
 			<% messages.forEach(msg => { %>
 			<div class="message-container">
 				<div class="message-info">
-						<div class="name-container">
-							<p class="username <%= msg.user.member_status %>"><%= msg.user.username %></p>
-						</div>
-						<img class="default pfp" src="/images/profile-images/portal-pfp.png" alt="pfp">
-						<% if(user.member_status == 'admin') { %>
-							<div class="delete-btn-container">
-								<div class="delete-btn"><a href="/delete/<%= msg._id %>">DELETE</a></div>
-							</div>
-						<% } %>
+					<div class="name-container">
+						<p class="username <%= msg.user.member_status %>"><%= msg.user.username %></p>
+					</div>
+					<img class="default pfp" src="/images/profile-images/portal-pfp.png" alt="pfp" />
+					<% if(user.member_status == 'admin') { %>
+					<div class="delete-btn-container">
+						<div class="delete-btn"><a href="/delete/<%= msg._id %>">DELETE</a></div>
+					</div>
+					<% } %>
 				</div>
 				<div class="message-texts">
 					<p class="title"><%= msg.title %></p>
 					<div class="texts-area">
-						<p><%= msg.message %></p>
+						<p class="text"><%= msg.message %></p>
 					</div>
 					<p class="date"><%= msg.format_date %></p>
 				</div>
@@ -72,24 +97,15 @@
 
 		<div class="message-form-container">
 			<form action="/message-post" method="post">
-				<input type="text" name="title" id="title" placeholder="What's on your mind?" minlength="2" required/>
+				<input type="text" name="title" id="title" placeholder="What's on your mind?" minlength="2" required />
 				<input type="text" name="message" id="message" placeholder="Prescribe some details, <%= user.username %>!" required />
 				<button>Send</button>
 			</form>
 		</div>
+
+		<!-- Below is hidden. Only used for js to grab info (hide_details.js) -->
+		<div class="membership" style="display: none"><%= user.member_status %></div>
 	</body>
-	<script>
-    let messageStatus = "<%= user.member_status %>";
-	 let usernames = document.querySelectorAll('.username');
-	 let dates = document.querySelectorAll('.date');
-	 if(messageStatus == 'traveler') {
-		usernames.forEach(username => {
-			// username.textContent = username.textContent.replace(/[^ ]/g, "X");
-			username.textContent = "Anonymous";
-		})
-		dates.forEach(date => {
-			date.textContent = date.textContent.replace(/[^ ]/g, "x");
-		})
-	 }
-	</script>
+	<script src="/javascripts/hide_details.js"></script>
+	<script src="/javascripts/hamburger.js"></script>
 </html>

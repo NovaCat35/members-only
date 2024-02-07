@@ -5,17 +5,24 @@
    .user-info {
       padding: 15px;
       display: flex;
-      justify-content: flex-start;
-      border: 3px solid rgb(204, 69, 69);
+      flex-direction: column;
+      border: 3px solid rgb(204, 71, 69);
       border-top: none;
       gap: 5px;
       &:first-of-type{
-         border-top: 3px solid rgb(204, 69, 69);
+         border-top: 3px solid rgb(204, 71, 69);
+      }
+      .main-info{
+         display: flex;
+         gap: 5px;
       }
    }
    h1 {
-      font-size: 3.1rem;
+      font-size: 2rem;
       margin-bottom: 20px;
+      @media screen and (min-width: 550px) {
+         font-size: 3.1rem;
+      }
    }
    .status {
       &.traveler {
