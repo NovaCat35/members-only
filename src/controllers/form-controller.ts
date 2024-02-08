@@ -211,6 +211,5 @@ function replaceEncodedCharacters(input: String) {
 	input = input.replace(/&#96;/g, "`");
 
 	console.log("what the heck...");
-	alert(input)
 	return input;
 }
