@@ -82,6 +82,8 @@ npm install express-rate-limit
 
 
 ## Resources ℹ️
+ODIN PROJECT (this is an amazing resource): https://www.theodinproject.com/lessons/nodejs-members-only#project-solution
+
 TypeScript setup: https://blog.logrocket.com/how-to-set-up-node-typescript-express/#create-express-server-with-ts-extension
 
 Creating stars background: https://codepen.io/sarazond/pen/LYGbwj
