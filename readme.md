@@ -13,6 +13,7 @@ Live link: https://bebop-paradise.fly.dev/ 🛰️ (Progress: Pagination Navigat
    - Admin: ability to delete posts & see all available user status
    - Member: see hidden details
    - All users: ability to see profile status and post messages
+- Pagination Nav (scalability for large amounts of messages)
 
 ## Technologies Used 🚀
 - **Backend:** Node.js, Express.js, TypeScript

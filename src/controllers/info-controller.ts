@@ -25,7 +25,7 @@ const { body, validationResult } = require("express-validator");
 exports.homepage = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
 	// Set default values for page and limit
 	const currentPage = parseInt(req.query.page) || 1;
-	const limit = 5; // msg per page
+	const limit = 6; // msg per page
 	try {
 		const totalMessages = await Message.countDocuments({});
 		const totalPages = Math.ceil(totalMessages / limit);
@@ -81,6 +81,9 @@ exports.admin_get = asyncHandler(async (req: any, res: Response, next: NextFunct
 exports.message_delete = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
 	const message = await Message.findById(req.params.id).populate("user").exec();
 
-	await message.deleteOne({ _id: req.params.id });
-	res.redirect(`/`);
+    if(message) {
+        await message.deleteOne({ _id: req.params.id });
+    }
+    console.log(req.query.page)
+    res.redirect(`/?page=${req.query.page || 1}`);
 });

@@ -321,74 +321,61 @@ a {
 ***********************/
 .pagination-navigation {
 	position: relative;
-	margin: 20px 0 170px;
+	margin: 40px 0 130px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
 	.github-link {
-		position: absolute;
-		left: 50%;
-		top: 35px;
-		transform: translateX(-50%);
+		margin-top: 10px;
 	}
 	.pagination {
 		display: flex;
 		justify-content: center;
-		margin-top: 20px;
-		
-		a {
-		  padding: 5px 10px;
-		  margin: 0 2px;
-		  text-decoration: none;
-		  color: #d6d6d6;
-		  border: 1px solid #ccc;
-		  border-radius: 3px;
-		  transition: background-color 0.3s ease;
-		  
-		  &:hover {
-			 background-color: #f0f0f0;
-			 color: rgb(8, 8, 8);
-		  }
-		  
-		  &.active {
-			 background-color: #007bff;
-			 color: #fff;
-			 border-color: #007bff;
-		  }
-		}
-		
-		ul {
-		  list-style: none;
-		  display: flex;
-		  margin: 0;
-		  padding: 0;
-		  
-		  li {
-			 margin: 0 2px;
-			 
-			 a {
+		align-items: center;
+		li {
+			&:first-child a {
+				border-top-left-radius: 5px;
+				border-bottom-left-radius: 5px;
+			}
+			&:last-child a {
+				border-top-right-radius: 5px;
+				border-bottom-right-radius: 5px;
+			}
+			&:not(:last-child) {
+				margin-right: -1px; // Remove the gap between elements
+			}
+			&.disabled {
+				pointer-events: none;
 				padding: 5px 10px;
 				text-decoration: none;
 				color: #333;
-				border: 1px solid #ccc;
-				border-radius: 3px;
-				transition: background-color 0.3s ease;
-				
-				&:hover {
-				  background-color: #f0f0f0;
+				background-color: #f5f5f5;
+				border: 1px solid #ddd;
+				@media screen and (min-width: 550px) {
+					padding: 10px 15px;
 				}
-				
+			}
+			a {
+				padding: 5px 10px;
+				text-decoration: none;
+				color: #333;
+				background-color: #f5f5f5;
+				border: 1px solid #ddd;
+				&:hover:not(.active) {
+					background-color: #eea450;
+					border: 1px solid #eea450;
+					color: white;
+				}
 				&.active {
-				  background-color: #007bff;
-				  color: #fff;
-				  border-color: #007bff;
+					border-color: #1192e3;
+					background-color: #1192e3;
+					color: #fff;
 				}
-			 }
-			 
-			 &.disabled {
-				opacity: 0.5;
-				pointer-events: none;
-			 }
-		  }
+				@media screen and (min-width: 550px) {
+					padding: 10px 15px;
+				}
+			}
 		}
-	 }
-	 
-	 
+	}
 }

@@ -113,34 +113,45 @@
 					<li><a href="/?page=<%= currentPage - 1 %>">Prev</a></li>
 				<% } %>
 				<!-- FIRST -->
-				<li><a href="/?page= 1 ">1</a></li>
+				<% if (currentPage == 1) { %>
+					<li><a class="active" href="/?page=1">1</a></li>
+				<% } else { %>
+					<li><a href="/?page=1">1</a></li>
+				<% } %>
 
 				<!-- 
-					* WE check number of current page and IF this value less than 5 we are output pagination links from 1 to current_page + 4.
-					* IF this value more than 5 we will start output pagination link from current_page - 4 to current_page + 4, thus previous links on current_step - 5 will be hide.
+					* We determine the current page number. 
+					* If the current page number is less than 2, we generate pagination links from 1 to current_page + 1.
+					* If the current page number is 2 or greater, we start generating pagination links from current_page - 1 to current_page + 1.
+					* This approach ensures that the previous links up to current_page - 1 are hidden when applicable.
 				-->
-				<% let i = (Number(currentPage) > 4 ? Number(currentPage) - 3 : 2) %> 
+				<% let i = (Number(currentPage) > 2 ? Number(currentPage) - 1 : 2) %> 
 
 				<!-- ... -->
 				<% if (i !== 2) { %>
-					 <li class="disabled"><a href="/?page=<%= currentPage + 2 %>">...</a></li>
+					 <li class="disabled">...</li>
 				<% } %>
-
 				<!-- REST OF LIST (up to established limit)-->
-				<% for (; i <= (Number(currentPage) + 3) && i <= totalPages - 1; i++) { %>
+				<% for (; i <= (Number(currentPage) + 1) && i <= totalPages - 1; i++) { %>
 					<% if (i == currentPage) { %>
 						<li><a class="active"><%= i %></a></li>
 					<% } else { %>
 						<li><a href="/?page=<%= i %>" <%= i === currentPage ? 'class="active"' : '' %>><%= i %></a></li>
 					<% } %>	
 					<!-- ... -->
-					<% if (i == Number(currentPage) + 3 && i < totalPages) { %>
-						<li class="disabled"><a href="/?page=<%= currentPage - 2 %>">...</a></li>
+					<% if (i == Number(currentPage) + 1 && i < totalPages) { %>
+						<li class="disabled">...</li>
 				  <% } %>
 				<% } %>
 
 				<!-- LAST -->
-				<li><a href="/?page=<%= totalPages %>"><%= totalPages %></a></li>
+				<% if (currentPage == totalPages && currentPage !== 1) { %>
+					<li><a class="active" href="/?page=<%= totalPages %>"><%= totalPages %></a></li>
+				<% } else { %>
+					<% if (currentPage !== 1) { %>
+						<li><a href="/?page=<%= totalPages %>"><%= totalPages %></a></li>
+					<% } %>
+				<% } %>
 
 				<!-- NEXT -->				
 				<% if (currentPage < totalPages) { %>
