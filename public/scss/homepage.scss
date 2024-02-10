@@ -142,7 +142,7 @@ main {
 		right: 35px;
 		bottom: 85px;
 		width: 125px;
-		z-index: -5;
+		z-index: 1;
 		animation: floating 10s infinite ease-in-out;
 		-webkit-animation: floating 10s infinite ease-in-out;
 		&:hover, &:active {

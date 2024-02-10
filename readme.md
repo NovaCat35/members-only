@@ -1,7 +1,7 @@
 # Bebop Paradise
 Welcome, intergalactic travelers! This is an exclusive clubhouse for people from all over the known universe to leave their mark on this corner of the universe. As a member of this MEMBERS ONLY app, you can see additional details regular travelers can't see. Sound interesting? Then start by joining our elusive clubhouse today! 
 
-Live link: https://bebop-paradise.fly.dev/ 🛰️ (Progress: Testing stage)
+Live link: https://bebop-paradise.fly.dev/ 🛰️ (Progress: Pagination Navigation stage)
 
 <img width="977" alt="Screenshot 2024-02-06 at 1 50 47 PM" src="https://github.com/NovaCat35/members-only/assets/54908064/7882ac7d-ee1f-4c7e-926d-68f5683abc80">
 
@@ -27,7 +27,9 @@ Live link: https://bebop-paradise.fly.dev/ 🛰️ (Progress: Testing stage)
 ## Challenges 🔥
 When implementing the sign-up and login functionality with bcrypt, I encountered numerous errors related to missing variables from bcrypt. Many of these issues stemmed from reorganizing my code for better modularity. Initially, I placed much of the passport initialization logic in the app.js file, leading to logical errors in the code. I resolved these issues by reassessing my authentication logic and addressing improper use of callbacks. This required revisiting and refining earlier sections of the codebase.
 
-When I was satisfied with all my code, I didn't realize how convoluted and tangled up my structure for js and ts files were. When the production env started screaming at me about reading ts files and wrong paths, I finally realized my ts file all needs to be transpiled. Definitely learn that the hard way after hours monitoring error messages ~ ehe.
+One of the other major question I aim to tackle is scalability. Mainly with when the website grows with the amount of users and messages, I asked myself what's the best way to showcase everything to the user without losing momentum. For this project, I try to replicate this by using pagination navigation. In theory, this would take load time away from the extreme of messages needed to be generated. This will be something I will continue to monitor and keep in mind as I develop.
+
+Finally, when I was satisfied with all my code, I didn't realize how convoluted and tangled up my structure for js and ts files were. When the production env started screaming at me about reading ts files and wrong paths, I finally realized my ts file all needs to be transpiled. Definitely learn that the hard way after hours monitoring error messages ~ ehe.
 
 ## Installation Guide ⚙️
 ### Development
@@ -61,7 +63,7 @@ npm install --save-dev ts-node nodemon
 
 > 1) Adjust tsconfig.json: uncomment "outDir", "allowJs", and change "outDir": "./dist" 
 
-> 2) Run tsc (npx tsc/npm run build) to transpile your TypeScript files to JavaScript. From step 1, we will output this in "./dist"
+> 2) Run tsc (npx tsc/npm run build) to transpile your TypeScript files to JavaScript. From step 1, we will output this in "./dist". It may be better to just directly link this to script everytime we run devstart
 
 ### Production
 > Type in terminal the following : 

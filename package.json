@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node ./bin/www",
-    "devstart": "nodemon ./bin/www --exec ts-node & npm run scss",
+    "devstart": "nodemon ./bin/www --exec ts-node & npm run scss & npm run build",
     "serverstart": "DEBUG=members-only:* npm run devstart",
     "scss": "sass --watch public/scss:public/stylesheets"
   },
