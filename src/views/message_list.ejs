@@ -65,11 +65,19 @@
 
 		<div class="main-message-page-container">
 			<header>
-				<div class="texts">
-					<h1>A <span class="member">MEMBERS ONLY</span> Clubhouse</h1>
-					<h2>All <span id="traveler">travelers</span> can leave a post.</h2>
-					<h2>But only <span id="member">members</span> can share the memory.</h2>
-				</div>
+				<% if(user.member_status == 'traveler') { %>
+					<div class="texts">
+						<h1>A <span class="member">MEMBERS ONLY</span> Clubhouse</h1>
+						<h2>All <span id="traveler">travelers</span> can leave a post.</h2>
+						<h2>But only <span id="member">members</span> can share the memory.</h2>
+					</div>
+				<% } else { %>
+					<div class="texts">
+						<h1>Welcome to <span class="member">BEBOP</span> Paradise</h1>
+						<h2>Please don't terrorize other <span id="traveler">travelers</span>.</h2>
+						<h2>Share <span id="member">your</span> darke- just kidding, come say hi! </h2>
+					</div>
+				<% } %>
 			</header>
 			<% messages.forEach(msg => { %>
 			<div class="message-container">

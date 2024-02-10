@@ -35,7 +35,7 @@ header .texts h2 {
 }
 @media screen and (min-width: 550px) {
   header .texts h2 {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
   }
 }
 header .texts span.member {

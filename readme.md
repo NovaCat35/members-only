@@ -14,6 +14,9 @@ Live link: https://bebop-paradise.fly.dev/ 🛰️ (Progress: Pagination Navigat
    - Member: see hidden details
    - All users: ability to see profile status and post messages
 - Pagination Nav (scalability for large amounts of messages)
+Future updates?
+- Light/dark mode
+- Custom pfp
 
 ## Technologies Used 🚀
 - **Backend:** Node.js, Express.js, TypeScript
