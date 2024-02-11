@@ -40,8 +40,8 @@
 					<% userMessages.forEach((message) => {%>
 					<div class="message-container">
 						<div class="message-header">
-							<p class="title"><%= message.title %></p>
-							<p class="date"><%= message.format_date %></p>
+							<p class="title"><%- message.title %></p>
+							<p class="date"><%- message.format_date %></p>
 						</div>
 						<div class="message-info">
 							<p><%= message.message %></p>

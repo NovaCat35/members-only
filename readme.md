@@ -88,6 +88,8 @@ TypeScript setup: https://blog.logrocket.com/how-to-set-up-node-typescript-expre
 
 Creating stars background: https://codepen.io/sarazond/pen/LYGbwj
 
+Pagination: https://evdokimovm.github.io/javascript/nodejs/mongodb/pagination/expressjs/ejs/bootstrap/2017/08/20/create-pagination-with-nodejs-mongodb-express-and-ejs-step-by-step-from-scratch.html
+
 ## Sources 🖌️
 Bebop Crew: https://all-worlds-alliance.fandom.com/wiki/Category:Bebop_Crew
 

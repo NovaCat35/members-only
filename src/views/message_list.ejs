@@ -83,7 +83,7 @@
 			<div class="message-container">
 				<div class="message-info">
 					<div class="name-container">
-						<p class="username <%= msg.user.member_status %>"><%= msg.user.username %></p>
+						<p class="username <%= msg.user.member_status %>"><%- msg.user.username %></p>
 					</div>
 					<img class="default pfp" src="/images/profile-images/portal-pfp.png" alt="pfp" />
 					<% if(user.member_status == 'admin') { %>
@@ -93,9 +93,9 @@
 					<% } %>
 				</div>
 				<div class="message-texts">
-					<p class="title"><%= msg.title %></p>
+					<p class="title"><%- msg.title %></p>
 					<div class="texts-area">
-						<p class="text"><%= msg.message %></p>
+						<p class="text"><%- msg.message %></p>
 					</div>
 					<p class="date"><%= msg.format_date %></p>
 				</div>
