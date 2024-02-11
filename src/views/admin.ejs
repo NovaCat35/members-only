@@ -18,7 +18,7 @@
 					<div class="username"><%- user.username %></div>
 					<div class="status <%= user.member_status %>">(<%= user.member_status %>)</div>
 				</div>
-				<div class="date-joined"><%= user.date_joined %></div>
+				<div class="date-joined"><%= user.format_date %></div>
 			</div>
 			<% }) %>
 		</div>

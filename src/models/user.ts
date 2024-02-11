@@ -23,7 +23,7 @@ const UserSchema = new Schema({
 });
 
 UserSchema.virtual("format_date").get(function (this: IUserDocument) {
-	return DateTime.fromJSDate(this.date_joined).toLocaleString(DateTime.DATETIME_MED);
+	return `${DateTime.fromJSDate(this.date_joined).toLocaleString(DateTime.DATETIME_MED)} (Eastern Standard Time)`;
 });
 
 module.exports = model("User", UserSchema);
