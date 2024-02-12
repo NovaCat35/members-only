@@ -18,10 +18,11 @@ const MessageSchema = new Schema({
 MessageSchema.virtual("format_date").get(function (this: IMessage) {
 	// Convert the stored UTC date to the user's local time
 	const localDate = DateTime.fromJSDate(this.post_date).toLocal();
-	// Format the local date and time
-	return localDate.toLocaleString(DateTime.DATETIME_MED);
-	
-	// return DateTime.fromJSDate(this.post_date).toLocaleString(DateTime.DATETIME_MED);
+	// Retrieve the timezone
+	const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+	// Format the local date and time along with the timezone
+	const formattedDate = `${localDate.toLocaleString(DateTime.DATETIME_MED)} ${timeZone}`;
+	return formattedDate;
 });
 
 module.exports = mongoose.model("Message", MessageSchema);
