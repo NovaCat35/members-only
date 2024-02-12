@@ -45,6 +45,7 @@ header {
 	}
 }
 
+$filter-grey: invert(81%) sepia(61%) saturate(3%) hue-rotate(70deg) brightness(113%) contrast(96%);
 .main-message-page-container {
 	display: flex;
 	flex-direction: column;
@@ -72,11 +73,30 @@ header {
 				overflow: auto;
 				text-align: center;
 			}
-			img.pfp {
-				margin-top: 26px;
+			img.default.pfp {
+				margin-top: 28px;
 				width: 40px;
 				@media screen and (min-width: 550px) {
 					margin-top: 10px;
+				}
+			}
+			img.custom.pfp {
+				margin-top: 28px;
+				width: 55px;
+				filter: $filter-grey;
+				background: linear-gradient(to bottom, rgba(255, 0, 0, 0) 0%, rgba(0, 170, 255, 0.65) 100%);
+				@media screen and (min-width: 550px) {
+					margin-top: 10px;
+				}
+			}
+			.bars {
+				margin-top: 10px;
+				.bar1 {
+					margin-top: 10px;
+					height: 3px;
+					width: 30px;
+					border-radius: 15px;
+					background-color: rgb(255, 115, 0);
 				}
 			}
 		}
@@ -228,7 +248,7 @@ $msg-background-color: rgb(29, 33, 44);
 }
 
 .username {
-	margin-top: 4px;
+	margin-top: 6px;
 	font-size: 1.02rem;
 	font-family: "Special Elite", Helvetica, Arial, sans-serif;
 	&.traveler {
@@ -379,3 +399,6 @@ a {
 		}
 	}
 }
+
+// Define a variable for the background color
+$backgroundColor: rgba(255, 255, 255, 0.5);

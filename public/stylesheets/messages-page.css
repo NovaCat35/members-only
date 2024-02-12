@@ -83,14 +83,35 @@ header .texts span#member {
   overflow: auto;
   text-align: center;
 }
-.main-message-page-container .message-container .message-info img.pfp {
-  margin-top: 26px;
+.main-message-page-container .message-container .message-info img.default.pfp {
+  margin-top: 28px;
   width: 40px;
 }
 @media screen and (min-width: 550px) {
-  .main-message-page-container .message-container .message-info img.pfp {
+  .main-message-page-container .message-container .message-info img.default.pfp {
     margin-top: 10px;
   }
+}
+.main-message-page-container .message-container .message-info img.custom.pfp {
+  margin-top: 28px;
+  width: 55px;
+  filter: invert(81%) sepia(61%) saturate(3%) hue-rotate(70deg) brightness(113%) contrast(96%);
+  background: linear-gradient(to bottom, rgba(255, 0, 0, 0) 0%, rgba(0, 170, 255, 0.65) 100%);
+}
+@media screen and (min-width: 550px) {
+  .main-message-page-container .message-container .message-info img.custom.pfp {
+    margin-top: 10px;
+  }
+}
+.main-message-page-container .message-container .message-info .bars {
+  margin-top: 10px;
+}
+.main-message-page-container .message-container .message-info .bars .bar1 {
+  margin-top: 10px;
+  height: 3px;
+  width: 30px;
+  border-radius: 15px;
+  background-color: rgb(255, 115, 0);
 }
 .main-message-page-container .message-container .message-texts {
   border-left: 1px solid black;
@@ -255,7 +276,7 @@ header .texts span#member {
 }
 
 .username {
-  margin-top: 4px;
+  margin-top: 6px;
   font-size: 1.02rem;
   font-family: "Special Elite", Helvetica, Arial, sans-serif;
 }
