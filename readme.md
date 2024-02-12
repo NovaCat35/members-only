@@ -1,9 +1,9 @@
 # Bebop Paradise
-Welcome, intergalactic travelers! This is an exclusive clubhouse for people from all over the known universe to leave their mark on this corner of the universe. As a member of this MEMBERS ONLY app, you can see additional details regular travelers can't see. Sound interesting? Then start by joining our elusive clubhouse today! 
+Welcome, intergalactic travelers, to Bebop Paradise! This is a silly ol-*ahem* exclusive clubhouse for people from all over the known universe to leave their mark on this corner of the universe. As a member of this app, you get access to additional details regular travelers can't see. Sound interesting? Then start by joining our illustrious clubhouse today! 
 
 Live link: https://bebop-paradise.fly.dev/ 🛰️ (Progress: Pagination Navigation stage)
 
-<img width="977" alt="Screenshot 2024-02-06 at 1 50 47 PM" src="https://github.com/NovaCat35/members-only/assets/54908064/7882ac7d-ee1f-4c7e-926d-68f5683abc80">
+<img width="1044" alt="Screenshot 2024-02-12 at 1 57 30 PM" src="https://github.com/NovaCat35/members-only/assets/54908064/6ee5047e-cb51-4355-8326-177e4875ae96">
 
 ## Features 🎯
 - Ability to add messages 
@@ -14,6 +14,7 @@ Live link: https://bebop-paradise.fly.dev/ 🛰️ (Progress: Pagination Navigat
    - Member: see hidden details
    - All users: ability to see profile status and post messages
 - Pagination Nav (scalability for large amounts of messages)
+
 Future updates?
 - Light/dark mode
 - Custom pfp
@@ -100,6 +101,5 @@ Portal Icons: https://theportalwiki.com/wiki/Category:Chamber_info_icons
 Radio sound: https://www.youtube.com/watch?v=bj2FvGcXRKs
 
 Honorable mentions: to all image src that I forgot to note down, truly sorry. Google images just took me places.
-
 
 Password is `bebop` 🤫
