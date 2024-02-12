@@ -5,23 +5,6 @@ const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 
 // CONTROLLER FOR MESSAGE POSTS
-// exports.homepage = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
-// 	if (req.user) {
-// 		// we have authenticated the user, show messages
-// 		const [messages] = await Promise.all([Message.find().populate("user").sort({post_date : -1}).exec()]);
-// 		res.render("message_list", {
-// 			title: "Message List",
-// 			messages: messages,
-// 			user: req.user,
-// 		});
-// 	} else {
-// 		// no user authenticated, show default homepage
-// 		res.render("index", {
-// 			title: "Members Only",
-// 		});
-// 	}
-// });
-
 exports.homepage = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
 	// Set default values for page and limit
 	const currentPage = parseInt(req.query.page) || 1;
@@ -54,36 +37,63 @@ exports.homepage = asyncHandler(async (req: any, res: Response, next: NextFuncti
 });
 
 exports.profile_get = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
-	const [user, userMessages] = await Promise.all([User.findById(req.user._id).exec(), Message.find({ user: req.user._id }).sort({ post_date: -1 }).exec()]);
-	res.render("profile", {
-		title: "Profile Page",
-		user: user,
-		userMessages: userMessages,
-	});
+	if (req.user) {
+		const [user, userMessages] = await Promise.all([User.findById(req.user._id).exec(), Message.find({ user: req.user._id }).sort({ post_date: -1 }).exec()]);
+		res.render("profile", {
+			title: "Profile Page",
+			user: user,
+			userMessages: userMessages,
+		});
+	} else {
+		// Non-authenticated user
+		res.render("index", {
+			title: "Members Only",
+		});
+	}
 });
 
 exports.status_page_get = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
-	const user = await User.findById(req.user._id).exec();
-	res.render("auth_status", {
-		title: "Status Page",
-		user: user,
-	});
+	if (req.user) {
+		const user = await User.findById(req.user._id).exec();
+		res.render("auth_status", {
+			title: "Status Page",
+			user: user,
+		});
+	} else {
+		// Non-authenticated user
+		res.render("index", {
+			title: "Members Only",
+		});
+	}
 });
 
 exports.admin_get = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
-	const users = await User.find().sort({ date_joined: -1 }).exec();
-	res.render("admin", {
-		title: "Admin Page",
-		users_list: users,
-	});
+	if (req.user) {
+		const users = await User.find().sort({ date_joined: -1 }).exec();
+		res.render("admin", {
+			title: "Admin Page",
+			users_list: users,
+		});
+	} else {
+		// Non-authenticated user
+		res.render("index", {
+			title: "Members Only",
+		});
+	}
 });
 
-exports.message_delete = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-	const message = await Message.findById(req.params.id).populate("user").exec();
-
-    if(message) {
-        await message.deleteOne({ _id: req.params.id });
-    }
-    console.log(req.query.page)
-    res.redirect(`/?page=${req.query.page || 1}`);
+exports.message_delete = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
+	if (req.user) {
+		const message = await Message.findById(req.params.id).populate("user").exec();
+		if (message) {
+			await message.deleteOne({ _id: req.params.id });
+		}
+		console.log(req.query.page);
+		res.redirect(`/?page=${req.query.page || 1}`);
+	} else {
+		// Non-authenticated user
+		res.render("index", {
+			title: "Members Only",
+		});
+	}
 });
