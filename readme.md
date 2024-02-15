@@ -10,7 +10,7 @@ Live link: https://bebop-paradise.fly.dev/ 🛰️ (Progress: Pagination Navigat
 - Authentication & security configuration
 - Session continuity
 - Users with different abilities and permissions : 
-   - Admin: ability to delete posts & see all available user status
+   - Admin: ability to delete posts & see all available user status (admin access page)
    - Member: see hidden details
    - All users: ability to see profile status and post messages
 - Pagination Nav (scalability for large amounts of messages)
@@ -18,6 +18,7 @@ Live link: https://bebop-paradise.fly.dev/ 🛰️ (Progress: Pagination Navigat
 Future updates?
 - Light/dark mode
 - Custom pfp
+- Edit messages
 
 ## Technologies Used 🚀
 - **Backend:** Node.js, Express.js, TypeScript
@@ -30,11 +31,11 @@ Future updates?
 - [fly.io](https://fly.io): for deploying and hosting the application
 
 ## Challenges 🔥
-When implementing the sign-up and login functionality with bcrypt, I encountered numerous errors related to missing variables from bcrypt. Many of these issues stemmed from reorganizing my code for better modularity. Initially, I placed much of the passport initialization logic in the app.js file, leading to logical errors in the code. I resolved these issues by reassessing my authentication logic and addressing improper use of callbacks. This required revisiting and refining earlier sections of the codebase.
+When implementing the sign-up and login functionality with bcrypt, I encountered numerous errors related to missing variables from bcrypt. Many of these issues stemmed from reorganizing my code for better modularity. Initially, I placed much of the passport initialization logic in the app.js file, leading to logical errors in the code. I resolved these issues by reassessing my authentication logic and addressing the improper use of callbacks. This required revisiting and refining earlier sections of the codebase.
 
-One of the other major question I aim to tackle is scalability. Mainly with when the website grows with the amount of users and messages, I asked myself what's the best way to showcase everything to the user without losing momentum. For this project, I try to replicate this by using pagination navigation. In theory, this would take load time away from the extreme of messages needed to be generated. This will be something I will continue to monitor and keep in mind as I develop.
+One of the other major questions I aim to tackle is scalability. Mainly when the website grows with the amount of users and messages, I asked myself what's the best way to showcase everything to the user without losing momentum. For this project, I replicate this by using pagination navigation. In theory, this would take load time away from the extreme of messages needed to be generated. This will be something I will continue to monitor and keep in mind as I develop.
 
-Finally, when I was satisfied with all my code, I didn't realize how convoluted and tangled up my structure for js and ts files were. When the production env started screaming at me about reading ts files and wrong paths, I finally realized my ts file all needs to be transpiled. Definitely learn that the hard way after hours monitoring error messages ~ ehe.
+Finally, when I was satisfied with all my code, I didn't realize how convoluted and tangled up my structure for js and ts files was. When the production env started screaming at me about reading ts files and wrong paths, I finally realized my ts files needed to be transpired. I learn that the hard way after hours of monitoring error messages ~ ehe.
 
 ## Installation Guide ⚙️
 ### Development
