@@ -56,6 +56,12 @@ main {
 		@media screen and (min-width: 1000px) {
 			margin-top: 50px;
 		}
+		@media screen and (min-width: 1920px) {
+			position: absolute;
+			top: 20%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
 	}
 	.opts-container {
 		display: flex;
@@ -145,9 +151,12 @@ main {
 		z-index: 1;
 		animation: floating 10s infinite ease-in-out;
 		-webkit-animation: floating 10s infinite ease-in-out;
-		&:hover, &:active {
+		&:hover,
+		&:active {
 			animation-play-state: paused; /* Pause the animation on hover */
-			transform: rotateY(360deg); /* Add rotation effect on hover */
+			animation: rotate360 1s infinite linear; /* Replace the existing animation with a continuous 360-degree rotation */
+
+			// transform: rotateY(360deg); /* Add rotation effect on hover */
 		}
 		@media screen and (min-width: 550px) {
 			width: 150px;
@@ -208,8 +217,8 @@ main {
 		bottom: -25px;
 		right: -10px;
 		width: 113px;
-		z-index: -11;
-		box-shadow: 0 0 60px 10px #fff, 0 0 130px 40px rgb(0, 225, 255), 0 0 800px 70px rgb(42, 0, 255), 0 0 1000px 60px rgb(255, 0, 116);
+		z-index: -15;
+		box-shadow: 0 0 60px 10px #fff, 0 0 130px 40px rgb(0, 225, 255), 0 0 800px 70px rgb(42, 0, 255), 0 0 1000px 60px rgb(76, 0, 255);
 		transform: rotate(334deg);
 		@media screen and (min-width: 550px) {
 			display: block;
@@ -264,6 +273,13 @@ main {
 	}
 	100% {
 		transform: translate(0, -0px) rotate(-10deg); /* Back to initial position */
+	}
+}
+
+@keyframes rotate360 {
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
 	}
 }
 
