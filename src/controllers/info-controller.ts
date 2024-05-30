@@ -6,7 +6,7 @@ const { body, validationResult } = require("express-validator");
 
 // CONTROLLER FOR MESSAGE POSTS
 exports.homepage = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
-	// Set default values for page and limit
+	// Set default values for page and limit (below infos are for pagination nav)
 	const currentPage = parseInt(req.query.page) || 1;
 	const limit = 6; // msg per page
 	try {

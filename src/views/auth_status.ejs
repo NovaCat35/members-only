@@ -13,13 +13,13 @@
 		<main>
 			<form action="/auth-status/member" method="post">
 				<h1>Become a member</h1>
-				<img id="member-img" src="/images/bebop-ein.webp" alt="dog" />
+				<img id="member-img" loading="lazy" src="/images/bebop-ein.webp" alt="dog" />
 				<% if (user.member_status == 'traveler') { %>
 				<div class="input-container">
 					<label for="password">Password</label>
 					<div class="password-container">
 						<input id="password" name="member_password" type="password" required />
-						<img class="eye-icon" src="/images/eye.svg" alt="password eye-icon" />
+						<img class="eye-icon" loading="lazy" src="/images/eye.svg" alt="password eye-icon" />
 					</div>
 				</div>
 				<p>
@@ -36,13 +36,13 @@
 			</form>
 			<form action="/auth-status/admin" method="post">
 				<h1>Become an admin</h1>
-				<img id="admin-img" src="/images/bebop-spike.png" alt="cowboy" />
+				<img id="admin-img" loading="lazy" src="/images/bebop-spike.png" alt="cowboy" />
 				<% if (user.member_status !== 'admin') { %>
 				<div class="input-container">
 					<label for="password2">Password</label>
 					<div class="password-container">
 						<input id="password2" name="admin_password" type="password" required />
-						<img class="eye-icon2" src="/images/eye.svg" alt="password eye-icon" />
+						<img class="eye-icon2" loading="lazy" src="/images/eye.svg" alt="password eye-icon" />
 					</div>
 				</div>
 				<p><span class="hint">NO HINTS:</span> Well whatever happens, happens...</p>
